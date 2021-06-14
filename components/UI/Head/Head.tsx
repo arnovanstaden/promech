@@ -14,7 +14,7 @@ export default function Head(props: THead) {
     return (
         <NextHead>
             <title>{props.title}</title>
-            <link rel="icon" type="image/png" href="/images/logos/favicon.png" />
+            <link rel="icon" type="image/png" href="/images/branding/favicon.png" />
             <meta name="description" content={props.description} />
             <meta name="robots" content={props.robots === false ? "noindex, nofollow" : "index, follow"} />
             {props.canonical ? <link rel="canonical" href={`https://www.promechengineering.co.za${props.canonical}`} /> : null}

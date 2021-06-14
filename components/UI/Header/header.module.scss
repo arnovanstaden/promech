@@ -1,127 +1,73 @@
 @import "../../../styles/variables.scss";
 
 .header {
-    background-color: $grey;
-    padding: 1rem 0;
+    background-color: $white;
     position: relative;
+    border-bottom: 0.5px solid $lightgrey;
 
-    .nav {
-        display: flex;
-        justify-content: space-between;
+    nav {
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+
+        >* {
+            padding-top: 1rem;
+        }
 
         .logo {
+            border-right: 0.5px solid $lightgrey;
             display: flex;
             align-items: center;
-            cursor: pointer;
+            padding-bottom: 0.5rem;
 
             img {
-                width: 1.75rem;
-                margin-right: 0.5rem;
-            }
-
-            p {
-                margin: 0;
-                color: $white;
-                font-family: $heading-font;
-                text-transform: uppercase;
-                font-size: 1.25rem;
-                font-weight: 500;
-                letter-spacing: 0.5px
+                width: 80%;
             }
         }
 
         .menu {
             @include list-reset;
             display: flex;
-            align-items: center;
+            justify-content: space-around;
+            padding: 0 2rem;
+            align-items: flex-end;
 
             li {
-                margin-left: 1rem;
-                color: $white;
-                text-transform: uppercase;
-                font-family: $heading-font;
-                font-weight: 400;
-                font-size: 1.05rem;
-                letter-spacing: 0.5px;
+                padding-bottom: 1rem;
 
-                &:hover {
-                    color: $red;
+                a {
+                    font-weight: 600;
+                    letter-spacing: 0.5px;
                 }
 
                 &.active {
-                    color: $red;
-                    font-weight: 500;
+                    border-bottom: 3px solid $red;
                 }
-
-
             }
         }
-    }
 
-    .mobileNav {
-        z-index: 10;
-        display: flex;
-        align-items: center;
-
-        >i {
-            color: $white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            right: 0;
-            height: 100vh;
-            width: 0;
-            background-color: rgba($grey, 0.95);
+        .contact {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-            overflow: hidden;
-            transition: 0.3s ease-in-out;
+            border-left: 0.5px solid $lightgrey;
+            align-items: flex-end;
+            padding-bottom: 1rem;
+            color: $red;
+            justify-content: flex-end;
 
-            >i {
-                position: absolute;
-                top: 1.5rem;
-                right: 1.5rem;
-                color: $white;
-                font-size: 1.4rem;
-                cursor: pointer;
-                padding: 0.1rem;
-            }
 
-            .menu {
-                padding: 1.5rem;
-                flex-direction: column;
-
-                li {
-                    font-size: 1.1rem;
-                    margin: 0.5rem 0;
-                }
-            }
-
-            .social {
-                position: absolute;
-                bottom: 5rem;
-                width: 100%;
+            >div {
                 display: flex;
-                justify-content: center;
+                align-items: center;
 
                 i {
-                    color: $white;
-                    font-size: 1.4rem;
-                    cursor: pointer;
-                    padding: 0.5rem;
+                    margin-right: 0.5rem;
+                }
+
+
+                a {
+                    font-weight: 500;
                 }
             }
         }
 
-        &.open .overlay {
-            width: 75vw;
-            border-left: 4px solid $red;
-        }
     }
 }

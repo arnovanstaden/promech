@@ -14,7 +14,9 @@ const Home = () => {
       }}
       className={styles.home}
     >
+      <div className={styles.landing}>
 
+      </div>
     </Page>
   )
 }
