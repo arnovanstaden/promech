@@ -4,11 +4,11 @@ import Page from "../components/UI/Page/Page";
 // Styles
 import styles from "../styles/pages/index.module.scss";
 
-const Home = () => {
+const Services = () => {
   return (
     <Page
       head={{
-        title: "ProMech Mechanical Engineering",
+        title: "Services | ProMech",
         description: "FIX THIS",
         canonical: "/",
       }}
@@ -19,5 +19,5 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Services
 

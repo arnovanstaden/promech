@@ -1,0 +1,141 @@
+@import "../../../styles/variables.scss";
+
+.footer {
+    padding: 2rem 0 1rem 0;
+    background-color: $grey;
+    color: $white;
+
+    .grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &.content {
+            padding-bottom: 1rem;
+
+            .logo {
+                img {
+                    width: 6rem;
+                }
+            }
+
+            .top {
+                .list {
+                    @include list-reset;
+
+                    li {
+                        margin-left: 1rem;
+                        color: $white;
+                        font-family: $heading-font;
+                        font-weight: 400;
+                        font-size: 1rem;
+                        letter-spacing: 0.5px;
+
+                        &:hover {
+                            color: $red;
+                        }
+
+                        &.active {
+                            color: $red;
+                            font-weight: 500;
+                        }
+                    }
+
+                    &.nav {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        border-bottom: 1px solid $lightgrey;
+                        padding-bottom: 0.75rem;
+                    }
+
+                    &.contact {
+                        padding-top: 0.75rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+
+                        li {
+                            font-size: 0.9rem;
+                            display: flex;
+                            align-items: center;
+
+                            i {
+                                color: $red;
+                                margin-right: 0.25rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.bottom {
+            border-top: 1px solid $lightgrey;
+            padding-top: 1rem;
+
+            .social {
+                a {
+                    font-size: 1.1rem;
+                    margin-right: 0.5rem;
+
+                    &:hover {
+                        color: $red;
+                    }
+                }
+            }
+
+            p {
+                margin: 0;
+                font-size: 0.7rem;
+                text-align: center;
+                color: $white;
+                font-weight: 300;
+
+                a {
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .grid {
+            flex-direction: column;
+
+            &.content {
+
+                .top {
+                    width: 100%;
+
+                    .list {
+
+                        li {
+                            margin-left: 0;
+                        }
+
+                        &.nav {
+                            flex-wrap: wrap;
+                            justify-content: space-around;
+                            margin-top: 1rem;
+                        }
+
+                        &.contact {
+                            flex-direction: column;
+
+                            li {
+                                margin-bottom: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.bottom {
+                .social {
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+$red: #ed1b24;
+$grey: #282828;
+$lightgrey: #757272;
+$white: #ffffff;
+$font: "Poppins",
+Tahoma,
+Geneva,
+sans-serif;
+$heading-font: "Montserrat",
+Tahoma,
+Geneva,
+sans-serif;
+
+@mixin list-reset {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin hr-reset {
+    border: none;
+    display: block;
+    margin: 1rem 0;
+}
