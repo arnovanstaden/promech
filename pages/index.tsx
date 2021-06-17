@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 // Components
 import Page from "../components/UI/Library/Page/Page";
 import Container from "../components/UI/Library/Container/Container";
@@ -48,6 +50,73 @@ const Home = () => {
         heading={{
           title: "We are a Dynamic and Experienced Consulting Engineering Firm.",
           subtitle: "Professional Mechanical Engineering Services"
+        }}
+        colour="grey"
+      >
+        <div className={styles.grid}>
+          <Link href="/about">
+            <a className={styles.item}>
+              <img src="" alt="" />
+              <h4>Who We Are</h4>
+              <hr />
+              <p>Learn more about who we are, our company &amp; values and our professional memberships.</p>
+              <button>
+                Read More
+                <i className="icon-arrow_right"></i>
+              </button>
+            </a>
+          </Link>
+          <Link href="/services">
+            <a className={styles.item}>
+              <img src="" alt="" />
+              <h4>What We Do</h4>
+              <hr />
+              <p>Learn more about who we are, our company &amp; values and our professional memberships.</p>
+              <button>
+                Read More
+                <i className="icon-arrow_right"></i>
+              </button>
+            </a>
+          </Link>
+          <Link href="/projects">
+            <a className={styles.item}>
+              <img src="" alt="" />
+              <h4>What We’ve Done</h4>
+              <hr />
+              <p>Learn more about who we are, our company &amp; values and our professional memberships.</p>
+              <button>
+                Read More
+                <i className="icon-arrow_right"></i>
+              </button>
+            </a>
+          </Link>
+        </div>
+      </Section>
+
+      <Section
+        className={styles.services}
+        heading={{
+          title: "What We Do",
+          subtitle: "Comprehensive & Value-driven"
+        }}
+      >
+
+      </Section>
+      <Section
+        className={styles.projects}
+        heading={{
+          title: "What We’ve Done",
+          subtitle: "Our Recent Projects"
+        }}
+        colour="dark"
+      >
+
+      </Section>
+      <Section
+        className={styles.contact}
+        heading={{
+          title: "Have a burning question about your next project? ",
+          subtitle: "Get in Touch?"
         }}
         colour="grey"
       >

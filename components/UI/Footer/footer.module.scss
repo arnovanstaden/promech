@@ -19,7 +19,9 @@
             >p {
                 font-weight: 300;
                 color: $white;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+                margin: 0;
+                margin-top: 0.5rem;
             }
 
             .copy {
@@ -44,7 +46,7 @@
             }
 
             ul {
-                @include list-reset;
+                @include reset-list;
                 margin-top: 1.5rem;
 
                 li {

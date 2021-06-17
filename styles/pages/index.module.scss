@@ -2,7 +2,6 @@
 
 .home {
 
-
     .landing {
 
         .content {
@@ -37,6 +36,60 @@
 
         .image {
             opacity: 0.5;
+        }
+    }
+
+    .about {
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+
+            .item {
+                padding: 2rem;
+                background-color: $white;
+
+                h4 {
+                    margin: 0;
+                }
+
+                hr {
+                    @include reset-hr;
+                    height: 1px;
+                    background-color: $grey;
+                    width: 100%;
+                    margin: 1.5rem 0 1.5rem 2rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                }
+
+                button {
+                    @include reset-button;
+                    margin-top: 1.5rem;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+
+                    i {
+                        margin-left: 0.5rem;
+                        padding: 0.25rem;
+                        background-color: $grey;
+                        color: $white;
+                    }
+                }
+
+                &:hover {
+                    background-color: $red;
+
+                    h4,
+                    p,
+                    button {
+                        color: $white !important;
+                    }
+                }
+            }
         }
     }
 }

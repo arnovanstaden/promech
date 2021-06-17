@@ -25,7 +25,7 @@
         }
 
         .menu {
-            @include list-reset;
+            @include reset-list;
             display: flex;
             justify-content: space-around;
             padding: 0 2rem;
