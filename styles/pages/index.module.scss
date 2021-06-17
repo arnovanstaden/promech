@@ -1,5 +1,6 @@
 @import "../variables.scss";
 
+
 .home {
 
     .landing {
@@ -49,8 +50,12 @@
                 padding: 2rem;
                 background-color: $white;
 
+                img {
+                    width: 5rem;
+                }
+
                 h4 {
-                    margin: 0;
+                    margin: 1.5rem 0 0 0;
                 }
 
                 hr {
@@ -58,7 +63,7 @@
                     height: 1px;
                     background-color: $grey;
                     width: 100%;
-                    margin: 1.5rem 0 1.5rem 2rem;
+                    margin: 1.5rem 0 1.5rem -2rem;
                 }
 
                 p {
@@ -75,7 +80,7 @@
                     i {
                         margin-left: 0.5rem;
                         padding: 0.25rem;
-                        background-color: $grey;
+                        background-color: $red;
                         color: $white;
                     }
                 }

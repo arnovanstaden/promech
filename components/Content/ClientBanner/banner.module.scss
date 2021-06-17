@@ -1,0 +1,21 @@
+@import "../../../styles/variables.scss";
+
+.banner {
+    padding: 1rem;
+    border-top: 1px solid $lightgrey;
+
+    .inner {
+        display: flex;
+
+        div {
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+
+            img {
+                display: block;
+                width: 6rem;
+            }
+        }
+    }
+}

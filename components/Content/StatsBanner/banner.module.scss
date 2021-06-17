@@ -1,0 +1,29 @@
+@import "../../../styles/variables.scss";
+
+.content {
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h4 {
+            color: $red;
+            font-size: 5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        p {
+            font-weight: 500;
+            margin: 0;
+            color: $grey;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            line-height: 1.25;
+        }
+    }
+}

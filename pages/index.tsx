@@ -8,6 +8,8 @@ import NextImage from "../components/UI/Library/NextImage/NextImage";
 import Section from "../components/UI/Library/Section/Section"
 import ProjectGrid from "../components/Content/ProjectGrid/ProjectGrid"
 import Contact from "../components/Content/Contact/Contact"
+import ClientBanner from "../components/Content/ClientBanner/ClientBanner"
+import StatsBanner from "../components/Content/StatsBanner/StatsBanner"
 
 // Styles
 import styles from "../styles/pages/index.module.scss";
@@ -64,7 +66,7 @@ const Home = () => {
           <Link href="/about">
             <a>
               <div className={styles.item}>
-                <img src="" alt="" />
+                <img src="/images/pages/home/about-icon-1.svg" alt="Human Face and Gear Icon" />
                 <h4>Who We Are</h4>
                 <hr />
                 <p>Learn more about who we are, our company &amp; values and our professional memberships.</p>
@@ -78,7 +80,7 @@ const Home = () => {
           <Link href="/services">
             <a>
               <div className={styles.item}>
-                <img src="" alt="" />
+                <img src="/images/pages/home/about-icon-2.svg" alt="Settings Icon" />
                 <h4>What We Do</h4>
                 <hr />
                 <p>Learn more about comprehensive and value-driven design and project management services.</p>
@@ -92,7 +94,7 @@ const Home = () => {
           <Link href="/projects">
             <a>
               <div className={styles.item}>
-                <img src="" alt="" />
+                <img src="/images/pages/home/about-icon-3.svg" alt="Factory Icon" />
                 <h4>What We’ve Done</h4>
                 <hr />
                 <p>Take a look at the successful projects we've contributed our unique value to in the past.</p>
@@ -115,6 +117,9 @@ const Home = () => {
       >
 
       </Section>
+
+      <ClientBanner />
+
       <Section
         className={styles.projects}
         heading={{
@@ -131,6 +136,9 @@ const Home = () => {
           </Button>
         </div>
       </Section>
+
+      <StatsBanner />
+
       <Section
         className={styles.contact}
         heading={{
@@ -141,6 +149,7 @@ const Home = () => {
       >
         <Contact />
       </Section>
+
     </Page>
   )
 }
