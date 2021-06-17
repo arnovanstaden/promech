@@ -9,15 +9,15 @@ interface IProps {
     width?: number;
     background?: boolean;
     priority?: boolean;
-    alignTop?: boolean;
+    align?: "Top" | "Bottom" | "Left" | "Right";
 }
 
 // next/image creates unintended image styles. This components rectifies some styles to use the components just like a normal image, but still making use of the optimization & sizing features
 
-const NextImage = ({ src, alt, width, background, priority, alignTop }: IProps) => {
+const NextImage = ({ src, alt, width, background, priority, align }: IProps) => {
     const imageClasses = ClassNames(
         styles.image,
-        alignTop ? styles.alignTop : null
+        align && styles[`align${align}`]
     )
 
     if (width) {

@@ -1,1 +1,42 @@
-@import "../variables.scss"
+@import "../variables.scss";
+
+.home {
+
+
+    .landing {
+
+        .content {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            min-height: 90vh;
+
+            .text {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+                h1 {
+                    font-weight: 600;
+                    margin: 0 0 1rem 0;
+                }
+
+                p {
+                    font-weight: 400;
+                    font-size: 0.95rem;
+                }
+
+                .buttons {
+                    margin-top: 1rem;
+
+                    >:last-child {
+                        margin-left: 1rem;
+                    }
+                }
+            }
+        }
+
+        .image {
+            opacity: 0.5;
+        }
+    }
+}

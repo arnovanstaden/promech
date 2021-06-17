@@ -1,6 +1,6 @@
 import ClassNames from "classnames";
 
-import Head from "../Head/Head";
+import Head from "../../Head/Head";
 
 interface IProps {
     children: React.ReactNode;

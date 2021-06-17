@@ -1,11 +1,11 @@
-@import "../../../styles/variables.scss";
+@import "../../../../styles/variables.scss";
 
 .button {
     background-color: $red;
     padding: 0.5rem 2rem;
-    font-weight: 500;
+    font-weight: 600;
     color: $white;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     border: none;
     font-family: $heading-font;
     outline: none;
@@ -21,10 +21,11 @@
 
     &.hollow {
         background-color: transparent;
-        color: $white;
+        color: $grey;
 
         &:hover {
             background-color: $red;
+            color: $white;
         }
     }
 }

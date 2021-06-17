@@ -6,12 +6,12 @@ import styles from "./button.module.scss";
 
 interface IProps {
     link?: string;
-    text: string;
+    children: string;
     hollow?: boolean;
     click?: any;
 }
 
-const Button = ({ link, text, hollow, click }: IProps) => {
+const Button = ({ link, children, hollow, click }: IProps) => {
 
     const classes = ClassNames(
         styles.button,
@@ -21,7 +21,7 @@ const Button = ({ link, text, hollow, click }: IProps) => {
     const Inner = () => {
         return (
             <button className={classes} onClick={click ? click : null}>
-                {text}
+                {children}
             </button>
         )
     }

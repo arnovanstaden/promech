@@ -9,78 +9,95 @@ import styles from "./footer.module.scss";
 
 export default function Footer() {
     const router = useRouter();
-    const date = new Date();
-    const currentYear = date.getFullYear();
+    const currentYear = new Date().getFullYear();
+
     return (
         <footer className={styles.footer}>
             <Container>
-                <div className={`${styles.grid} ${styles.content}`}>
-                    <Link href="/">
-                        <a className={styles.logo}>
-                            <img src="/images/logos/logo-white-text.png" alt="PR Engineering Logo" />
-                        </a>
-                    </Link>
-                    <div className={styles.top}>
+                <div className={styles.grid}>
+                    <div className={styles.info}>
+                        <img src="/images/branding/Logo-White.svg" alt="PR Engineering Logo" />
+                        <p>Promech Engineering is a dynamic and experienced professional mechanical consulting engineering firm with the capacity to provide comprehensive and value-driven design and project management services.</p>
+                        <div className={styles.copy}>
+                            <p>© {currentYear} - Promech Engineering LTD.</p>
+                            <p>Design &amp; Development by <a target="blank" href="https://webdacity.dev">Webdacity</a></p>
+                        </div>
+                    </div>
+                    <div className={styles.menu}>
+                        <h5>Services</h5>
                         <ul className={`${styles.nav} ${styles.list}`}>
-                            <li className={router.pathname == "/" ? styles.active : ""}>
-                                <Link href="/">
-                                    <a>Home</a>
-                                </Link>
-                            </li>
-                            <li className={router.pathname == "/about" ? styles.active : ""}>
-                                <Link href="/about">
-                                    <a>About</a>
-                                </Link>
-                            </li>
-                            <li className={router.pathname == "/services" ? styles.active : ""}>
+                            <li>
                                 <Link href="/services">
-                                    <a>Services</a>
+                                    HVAC
                                 </Link>
                             </li>
-                            <li className={router.pathname == "/projects" ? styles.active : ""}>
+                            <li>
+                                <Link href="/services">
+                                    Refrigeration
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services">
+                                    Pipe Gasses
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services">
+                                    Wet Services
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services">
+                                    Extraction Systems
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services">
+                                    Lifting Equipment
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services">
+                                    Fire Design and Certification
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services">
+                                    Plant Engineering
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={styles.menu}>
+                        <h5>Company</h5>
+                        <ul className={`${styles.nav} ${styles.list}`}>
+                            <li>
+                                <Link href="/about">
+                                    About Us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/about#values">
+                                    Our Values
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/about#memberships">
+                                    Our Memberships
+                                </Link>
+                            </li>
+                            <li>
                                 <Link href="/projects">
-                                    <a>Projects</a>
+                                    Past Projects
                                 </Link>
                             </li>
-                            <li className={router.pathname == "/contact" ? styles.active : ""}>
+                            <li>
                                 <Link href="/contact">
-                                    <a>Contact</a>
+                                    Contact Us
                                 </Link>
                             </li>
                         </ul>
-                        <ul className={`${styles.contact} ${styles.list}`}>
-                            <li>
-                                <i className="icon-room"></i>
-                                <a href="https://g.page/Fire-Engineers?share" target="blank">
-                                    Stellenbosch, Western Cape
-                                </a>
-                            </li>
-                            <li>
-                                <i className="icon-email"></i>
-                                <a href="mailto:info@engpr.com">
-                                    info@engpr.com
-                                    </a>
-                            </li>
-                            <li>
-                                <i className="icon-phone"></i>
-                                <a href="tel:0210125393">
-                                    021 012 5393
-                                </a>
-                            </li>
-                        </ul>
                     </div>
-                </div>
-                <div className={`${styles.grid} ${styles.bottom}`}>
-                    <div className={styles.social}>
-                        <a href="https://www.instagram.com/prengineering/?hl=en" target="blank">
-                            <i className="icon-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/pr-engineering-africa/" target="blank">
-                            <i className="icon-linkedin"></i>
-                        </a>
-                    </div>
-                    <p>© {currentYear} - PR Engineering Africa (PTY) LTD.</p>
-                    <p>Design &amp; Development by <a target="blank" href="https://webdacity.dev">Webdacity</a></p>
                 </div>
             </Container>
         </footer>

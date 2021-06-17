@@ -1,44 +1,40 @@
 import ClassNames from "classnames";
 
+// Components
+import Components from "../Container/Container"
+
 // Styles
 import styles from "./section.module.scss";
 
 interface IProps {
     children: React.ReactNode;
-    heading?: string;
-    colour?: "light" | "dark";
-    number?: number;
+    heading?: {
+        title: string;
+        subtitle: string;
+    };
+    colour?: "white" | "grey" | "dark";
     className?: string;
 }
 
-const Section = ({ children, colour, heading, number, className }: IProps) => {
+const Section = ({ children, colour = "white", heading, className }: IProps) => {
     const classes = ClassNames(
+        className,
         styles.section,
-        colour === "light" ? styles.light : null,
-        colour === "dark" ? styles.dark : null,
+        styles[colour]
     )
 
     return (
         <section className={classes}>
-            <div className={styles.grid}>
-                <div className={styles.number}>
-                    <h5>0{number}</h5>
-                </div>
-                <div className={styles.content}>
-                    <div className="container">
-                        {heading ?
-                            <div className={styles.heading}>
-                                <h1>{heading}</h1>
-                                <hr />
-                            </div>
-                            : null}
-                        <div className={className}>
-                            {children}
-                        </div>
+            <Components>
+                {heading &&
+                    <div className={styles.heading}>
+                        <h2>{heading.title}</h2>
+                        <h3>{heading.subtitle}</h3>
                     </div>
-                </div>
-            </div>
-        </section>
+                }
+                {children}
+            </Components>
+        </section >
     )
 }
 
