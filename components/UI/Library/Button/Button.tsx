@@ -11,11 +11,11 @@ interface IProps {
     click?: any;
 }
 
-const Button = ({ link, children, hollow, click }: IProps) => {
+const Button = ({ link, children, hollow, click, }: IProps) => {
 
     const classes = ClassNames(
         styles.button,
-        hollow ? styles.hollow : null,
+        hollow && styles.hollow,
     )
 
     const Inner = () => {

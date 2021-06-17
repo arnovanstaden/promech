@@ -2,11 +2,11 @@ $red: #ed1b24;
 $grey: #282828;
 $lightgrey: #757272;
 $white: #ffffff;
-$font: "Poppins",
+$font: Roboto,
 Tahoma,
 Geneva,
 sans-serif;
-$heading-font: "Montserrat",
+$heading-font: Montserrat,
 Tahoma,
 Geneva,
 sans-serif;
@@ -22,7 +22,7 @@ sans-serif;
 @mixin reset-hr {
     border: none;
     display: block;
-    margin: 1rem 0;
+    margin: 0;
 }
 
 @mixin reset-button {

@@ -3,12 +3,17 @@
 .section {
     padding: 8rem 0;
 
+
     .heading {
         text-align: center;
         display: flex;
         flex-direction: column-reverse;
         padding: 0 10rem;
         margin-bottom: 4rem;
+        background-image: url("/images/other/heading.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
 
         h2 {
             font-weight: 600;

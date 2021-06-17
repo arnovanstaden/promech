@@ -92,4 +92,18 @@
             }
         }
     }
+
+    .services {}
+
+    .projects {
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+
+            button {
+                color: $white;
+            }
+        }
+    }
 }
