@@ -1,1 +1,67 @@
-@import "../variables.scss"
+@import "../variables.scss";
+
+.about {
+
+    .overview {
+        .content {
+            padding: 0 10rem;
+            text-align: center;
+
+            p {
+                margin: 1rem 0;
+            }
+        }
+    }
+
+    .values {
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+
+            .value {
+                border: 2px solid $red;
+                padding: 2rem;
+
+                h4 {
+                    color: white;
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    margin: 0;
+                }
+
+                hr {
+                    @include reset-hr;
+                    height: 1px;
+                    background-color: $lightgrey;
+                    width: 100%;
+                    margin: 1.5rem 0 1.5rem -2rem;
+                }
+
+                p {
+                    color: $white;
+                    font-weight: 300;
+                }
+
+                &:last-child {
+                    grid-column: 1/4;
+                }
+            }
+        }
+    }
+
+    .memberships {
+        .grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+
+            img {
+                width: 12.5rem;
+            }
+        }
+    }
+}

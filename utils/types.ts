@@ -1,9 +1,16 @@
+type TImage = {
+    asset: {
+        url: string
+    }
+}
+
 export interface IProject {
     title: string
     client: string
     location: string
     description: string
     home: boolean
+    year: number
     slug: {
         current: string
     }
@@ -12,7 +19,7 @@ export interface IProject {
             url: string
         }
     }
-    asset: string
+    images: TImage[]
     services: IService[]
 }
 

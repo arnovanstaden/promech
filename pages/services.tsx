@@ -5,10 +5,11 @@ import { IService } from "../utils/types";
 
 // Components
 import Page from "../components/UI/Library/Page/Page";
-import Section from "../components/UI/Library/Section/Section"
-import Container from "../components/UI/Library/Container/Container"
-import NextImage from "../components/UI/Library/NextImage/NextImage"
-import ServicesGrid from "../components/Content/Services/Services"
+import Section from "../components/UI/Library/Section/Section";
+import Container from "../components/UI/Library/Container/Container";
+import NextImage from "../components/UI/Library/NextImage/NextImage";
+import ServicesGrid from "../components/Content/Services/Services";
+
 
 // Styles
 import styles from "../styles/pages/services.module.scss";
