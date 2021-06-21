@@ -9,4 +9,5 @@
 <glyph unicode="&#x20;" horiz-adv-x="512" d="" />
 <glyph unicode="&#xe900;" glyph-name="phone" d="M282 478.667q96-186 282-282l94 94q20 20 44 10 72-24 152-24 18 0 30-12t12-30v-150q0-18-12-30t-30-12q-300 0-513 213t-213 513q0 18 12 30t30 12h150q18 0 30-12t12-30q0-80 24-152 8-26-10-44z" />
 <glyph unicode="&#xe901;" glyph-name="arrow_right" d="M512 768.667l342-342-342-342-60 60 238 240h-520v84h520l-238 240z" />
+<glyph unicode="&#xe902;" glyph-name="block" d="M256 682.667h512v-512h-512v512z" />
 </font></defs></svg>

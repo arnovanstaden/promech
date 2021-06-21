@@ -6,6 +6,8 @@ import { IService } from "../utils/types";
 // Components
 import Page from "../components/UI/Library/Page/Page";
 import Section from "../components/UI/Library/Section/Section"
+import Container from "../components/UI/Library/Container/Container"
+import NextImage from "../components/UI/Library/NextImage/NextImage"
 import ServicesGrid from "../components/Content/Services/Services"
 
 // Styles
@@ -32,6 +34,38 @@ const Services = ({ services }: { services: IService[] }) => {
         <ServicesGrid services={services} />
 
       </Section>
+
+      <section className={styles.list}>
+        <Container>
+          <div className={styles.grid}>
+            {services.map((service, index) => (
+              <div className={styles.service} key={index} id={`${service.category.replace(/ /g, "-").toLowerCase()}`}>
+                <div className={styles.image}>
+                  <NextImage
+                    background
+                    width={800}
+                    src="/images/pages/services/pipe-gasses.jpeg"
+                    alt={service.category}
+                    align='Center'
+                  />
+                </div>
+                <div className={styles.content}>
+                  <h4>{service.category}</h4>
+                  <hr />
+                  <ul>
+                    {service.services.map((item, index) => (
+                      <li key={index}>
+                        <i className="icon-block"></i>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
     </Page>
   )
 }
