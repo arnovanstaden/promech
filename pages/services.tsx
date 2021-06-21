@@ -44,8 +44,8 @@ const Services = ({ services }: { services: IService[] }) => {
                 <div className={styles.image}>
                   <NextImage
                     background
-                    width={800}
-                    src="/images/pages/services/pipe-gasses.jpeg"
+                    width={600}
+                    src={service.image.asset.url}
                     alt={service.category}
                     align='Center'
                   />
@@ -81,6 +81,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
           allService {
             category
             services
+            image {
+              asset {
+                url
+              }
+            }
           }
           }
       `,

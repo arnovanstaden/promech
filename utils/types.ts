@@ -26,4 +26,5 @@ export interface IProject {
 export interface IService {
     category: string
     services: string[]
+    image: TImage
 }
