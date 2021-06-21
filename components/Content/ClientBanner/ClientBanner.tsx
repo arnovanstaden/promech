@@ -37,6 +37,9 @@ const ClientBanner = () => {
                             <img src="/images/other/clients/spescare.png" alt="" />
                         </div>
                         <div>
+                            <img src="/images/other/clients/steinhoff.png" alt="" />
+                        </div>
+                        <div>
                             <img src="/images/other/clients/unitrans.png" alt="" />
                         </div>
                     </div>
