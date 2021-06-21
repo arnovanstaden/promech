@@ -5,9 +5,13 @@
     position: relative;
     border-bottom: 0.5px solid $lightgrey;
 
-    nav {
+    .nav {
         display: grid;
         grid-template-columns: 15% 70% 15%;
+
+        >I {
+            display: none;
+        }
 
         >* {
             padding-top: 1rem;
@@ -71,8 +75,12 @@
 
     }
 
+    .mobileNav {
+        display: none;
+    }
+
     @media screen and (max-width:1200px) {
-        nav {
+        .nav {
             grid-template-columns: 20% 60% 20%;
 
             .menu {
@@ -82,7 +90,7 @@
     }
 
     @media screen and (max-width:991px) {
-        nav {
+        .nav {
             grid-template-columns: 20% 80%;
 
             .menu {
@@ -97,9 +105,19 @@
 
     @media screen and (max-width:768px) {
 
-        nav {
+        .nav {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+
+            >i {
+                display: block;
+                background-color: $red;
+                color: $white;
+                font-weight: 500;
+                font-size: 1.25rem;
+                padding: 0.25rem;
+            }
 
             .logo {
                 border: none;
@@ -114,4 +132,52 @@
             }
         }
     }
+
+    .mobileNav {
+        z-index: 100;
+        display: block;
+        background-color: $grey;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: 0.3s ease-in-out;
+
+        >i {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: $red;
+            font-size: 1.25rem;
+            padding: 1rem;
+        }
+
+
+        .menu {
+            @include reset-list;
+            padding: 0 1rem;
+
+            li {
+                color: $white;
+                text-align: center;
+                margin: 0.5rem 0;
+                font-size: 1.35rem;
+
+                &.active {
+                    color: $red;
+                }
+            }
+        }
+
+        &.open {
+            width: 100vw;
+        }
+    }
+
+
 }
