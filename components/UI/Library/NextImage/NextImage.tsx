@@ -9,29 +9,34 @@ interface IProps {
     width?: number;
     background?: boolean;
     priority?: boolean;
-    align?: "Top" | "Bottom" | "Left" | "Right";
+    align?: "Top" | "Bottom" | "Left" | "Right" | "Center";
 }
 
 // next/image creates unintended image styles. This components rectifies some styles to use the components just like a normal image, but still making use of the optimization & sizing features
 
 const NextImage = ({ src, alt, width, background, priority, align }: IProps) => {
+
     const imageClasses = ClassNames(
         styles.image,
+    )
+
+    let containerClasses = ClassNames(
+        styles.container,
+        background ? styles.background : null,
         align && styles[`align${align}`]
     )
 
     if (width) {
-        const containerClasses = ClassNames(
-            styles.container,
+        containerClasses = ClassNames(
+            containerClasses,
             styles.intrinsic,
-            background ? styles.background : null
         )
 
         return (
             <div className={containerClasses}>
                 <Image
                     src={src}
-                    alt={`Picture of ${styles.image}`}
+                    alt={alt}
                     layout="intrinsic"
                     className={imageClasses}
                     width={width}
@@ -43,10 +48,10 @@ const NextImage = ({ src, alt, width, background, priority, align }: IProps) => 
     }
 
     return (
-        <div className={styles.container}>
+        <div className={containerClasses}>
             <Image
                 src={src}
-                alt={`Picture of ${styles.image}`}
+                alt={alt}
                 layout="fill"
                 className={imageClasses}
                 priority={priority}

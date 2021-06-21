@@ -57,7 +57,8 @@ const Home = ({ projects, services }: IProps) => {
               <NextImage
                 src="/images/pages/home/landing.png"
                 alt="Gears"
-                background
+                align="Center"
+                width={600}
               />
             </div>
           </div>

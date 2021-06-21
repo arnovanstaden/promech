@@ -13,8 +13,9 @@ const Services = ({ services }: IProps) => {
     return (
         <div className={styles.grid}>
             {services.map((service, index) => (
-                <Link href={`/services#${service.category.replace(/ /g, "-").toLowerCase()}`}>
-                    <a className={styles.item} key={index}>
+                <Link href={`/services#${service.category.replace(/ /g, "-").toLowerCase()}`}
+                    key={index}>
+                    <a className={styles.item} >
                         <h5>{service.category}</h5>
                     </a>
                 </Link>

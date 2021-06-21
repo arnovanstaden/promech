@@ -23,21 +23,41 @@
         position: relative !important;
         height: unset !important;
         object-position: center center;
+    }
 
-        &.alignTop {
-            object-position: top center;
+    &.alignTop {
+        >div {
+            display: flex !important;
+            justify-content: center;
         }
+    }
 
-        &.alignBottom {
-            object-position: bottom center;
+    &.alignBottom {
+        >div {
+            display: flex !important;
+            justify-content: center;
+            align-items: flex-end;
         }
+    }
 
-        &.alignRight {
-            object-position: right center;
+    &.alignRight {
+        >div {
+            display: flex !important;
+            justify-content: flex-end;
         }
+    }
 
-        &.alignLeft {
-            object-position: left center;
+    &.alignLeft {
+        >div {
+            display: flex !important;
+        }
+    }
+
+    &.alignCenter {
+        >div {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
         }
     }
 
