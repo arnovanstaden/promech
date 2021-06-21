@@ -70,4 +70,48 @@
         }
 
     }
+
+    @media screen and (max-width:1200px) {
+        nav {
+            grid-template-columns: 20% 60% 20%;
+
+            .menu {
+                padding: 0 1rem;
+            }
+        }
+    }
+
+    @media screen and (max-width:991px) {
+        nav {
+            grid-template-columns: 20% 80%;
+
+            .menu {
+                padding-top: 1rem;
+            }
+
+            .contact {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+
+            .logo {
+                border: none;
+
+                img {
+                    width: 10rem;
+                }
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    }
 }

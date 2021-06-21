@@ -27,42 +27,42 @@ export default function Footer() {
                         <h5>Services</h5>
                         <ul className={`${styles.nav} ${styles.list}`}>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#hvac">
                                     HVAC
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#refrigeration">
                                     Refrigeration
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#pipe-gasses">
                                     Pipe Gasses
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#wet-services">
                                     Wet Services
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#extraction-systems">
                                     Extraction Systems
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#lifting-equipment">
                                     Lifting Equipment
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#fire-design-and-certification">
                                     Fire Design and Certification
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services">
+                                <Link href="/services#plant-engineering">
                                     Plant Engineering
                                 </Link>
                             </li>

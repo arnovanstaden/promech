@@ -25,6 +25,20 @@ interface IProps {
 }
 
 const Home = ({ projects, services }: IProps) => {
+
+  // Subcomponents
+  const LandingImage = () => {
+    return (
+      <div className={styles.image}>
+        <NextImage
+          src="/images/pages/home/landing.png"
+          alt="Gears"
+          align="Center"
+          width={600}
+        />
+      </div>
+    )
+  }
   return (
     <Page
       head={{
@@ -43,6 +57,7 @@ const Home = ({ projects, services }: IProps) => {
                 Engineering Services
               </h1>
               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <LandingImage />
               <div className={styles.buttons}>
                 <Button link="/services">
                   Our Services
@@ -53,14 +68,7 @@ const Home = ({ projects, services }: IProps) => {
                 </Button>
               </div>
             </div>
-            <div className={styles.image}>
-              <NextImage
-                src="/images/pages/home/landing.png"
-                alt="Gears"
-                align="Center"
-                width={600}
-              />
-            </div>
+            <LandingImage />
           </div>
         </Container>
       </div>
@@ -128,8 +136,7 @@ const Home = ({ projects, services }: IProps) => {
       >
         <ServicesGrid services={services} />
         <div className={styles.button}>
-          <Button link="/services"
-            hollow>
+          <Button link="/services">
             View More
           </Button>
         </div>

@@ -57,4 +57,20 @@
             }
         }
     }
+
+    @media screen and (max-width:768px) {
+        grid-template-columns: 1fr;
+    }
+
+    @media screen and (max-width:576px) {
+        .form {
+            form {
+                grid-template-columns: 1fr;
+
+                textarea {
+                    grid-column: unset;
+                }
+            }
+        }
+    }
 }
