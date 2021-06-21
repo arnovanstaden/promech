@@ -1,0 +1,33 @@
+@import "../variables.scss";
+
+.pageNotFound {
+
+    .section {
+        min-height: 60vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .error {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                font-size: 5rem;
+                margin: 0;
+            }
+
+            img {
+                width: 5rem;
+                margin: 0 1rem;
+            }
+        }
+
+        h3 {
+            font-weight: 600;
+        }
+    }
+}
