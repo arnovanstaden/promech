@@ -1,4 +1,8 @@
 import Link from "next/link"
+import { GetStaticProps } from 'next';
+import { gql } from "@apollo/client";
+import { client } from "../utils/apollo-client";
+import { IProject, IService } from "../utils/types";
 
 // Components
 import Page from "../components/UI/Library/Page/Page";
@@ -10,11 +14,17 @@ import ProjectGrid from "../components/Content/ProjectGrid/ProjectGrid"
 import Contact from "../components/Content/Contact/Contact"
 import ClientBanner from "../components/Content/ClientBanner/ClientBanner"
 import StatsBanner from "../components/Content/StatsBanner/StatsBanner"
+import ServicesGrid from "../components/Content/Services/Services"
 
 // Styles
 import styles from "../styles/pages/index.module.scss";
 
-const Home = () => {
+interface IProps {
+  projects: IProject[]
+  services: IService[]
+}
+
+const Home = ({ projects, services }: IProps) => {
   return (
     <Page
       head={{
@@ -115,7 +125,13 @@ const Home = () => {
           subtitle: "Comprehensive & Value-Driven"
         }}
       >
-
+        <ServicesGrid services={services} />
+        <div className={styles.button}>
+          <Button link="/services"
+            hollow>
+            View More
+          </Button>
+        </div>
       </Section>
 
       <ClientBanner />
@@ -128,7 +144,8 @@ const Home = () => {
         }}
         colour="dark"
       >
-        <ProjectGrid />
+        <ProjectGrid projects={projects} home />
+
         <div className={styles.button}>
           <Button link="/projects"
             hollow>
@@ -156,3 +173,40 @@ const Home = () => {
 
 export default Home
 
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { data } = await await client.query({
+    query: gql`
+        query {
+          allProject {
+            title
+            client
+            location
+            description
+            home
+            services {
+              category
+            }
+            slug {
+              current
+            }
+            thumbnail {
+              asset {
+                url
+              }
+            }
+          }
+          allService {
+            category
+            services
+          }
+          }
+      `,
+  });
+
+  return {
+    props: {
+      projects: data.allProject,
+      services: data.allService
+    }
+  }
+}

@@ -2,7 +2,7 @@
 import Page from "../components/UI/Library/Page/Page";
 
 // Styles
-import styles from "../styles/pages/index.module.scss";
+import styles from "../styles/pages/about.module.scss";
 
 const About = () => {
   return (

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 // Components
 import Components from "../Library/Container/Container"
@@ -7,6 +8,7 @@ import Components from "../Library/Container/Container"
 import styles from "./header.module.scss";
 
 export default function Header() {
+    const router = useRouter();
 
     return (
         <header className={styles.header}>
@@ -20,27 +22,27 @@ export default function Header() {
                         </Link>
                     </div>
                     <ul className={styles.menu}>
-                        <li className={styles.active}>
+                        <li className={router.pathname == "/" ? styles.active : ""}>
                             <Link href="/">
                                 <a>Home</a>
                             </Link>
                         </li>
-                        <li>
+                        <li className={router.pathname == "/about" ? styles.active : ""}>
                             <Link href="/about">
                                 <a>About</a>
                             </Link>
                         </li>
-                        <li>
+                        <li className={router.pathname == "/services" ? styles.active : ""}>
                             <Link href="/services">
                                 <a>Services</a>
                             </Link>
                         </li>
-                        <li>
+                        <li className={router.pathname == "/projects" ? styles.active : ""}>
                             <Link href="/projects">
                                 <a>Projects</a>
                             </Link>
                         </li>
-                        <li>
+                        <li className={router.pathname == "/contact" ? styles.active : ""}>
                             <Link href="/contact">
                                 <a>Contact</a>
                             </Link>

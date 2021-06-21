@@ -1,15 +1,32 @@
+import { IProject } from "../../../utils/types";
+
 // Components
 import Project from "../Project/Project"
 
 // Styles
 import styles from "./grid.module.scss";
 
-const ProjectGrid = () => {
+interface IProps {
+    projects: IProject[]
+    home?: boolean
+}
+
+const ProjectGrid = ({ projects, home }: IProps) => {
+
+    // if (featured) {
+    //     // FIX THIS - CAROUSEL
+    //     return (
+    //         projects.map((project, index) => (
+    //             <Project {...project} key={index} />
+    //         ))
+    //     )
+    // }
+
     return (
         <div className={styles.grid}>
-            <Project />
-            <Project />
-            <Project />
+            {projects.map((project, index) => (
+                <Project {...project} key={index} />
+            ))}
         </div>
     )
 }

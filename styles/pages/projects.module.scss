@@ -1,1 +1,6 @@
-@import "../variables.scss"
+@import "../variables.scss";
+
+.projects {
+    min-height: 80vh;
+    background-color: $grey;
+}

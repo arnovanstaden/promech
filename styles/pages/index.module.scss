@@ -49,6 +49,7 @@
             .item {
                 padding: 2rem;
                 background-color: $white;
+                transition: 0.2s ease-in-out;
 
                 img {
                     width: 5rem;
@@ -98,7 +99,19 @@
         }
     }
 
-    .services {}
+    .services {
+        background-image: url("/images/pages/home/services.png");
+        background-position: top right;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+
+
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+    }
 
     .projects {
         .button {
