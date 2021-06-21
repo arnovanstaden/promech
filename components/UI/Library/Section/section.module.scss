@@ -3,7 +3,6 @@
 .section {
     padding: 8rem 0;
 
-
     .heading {
         text-align: center;
         display: flex;
@@ -40,6 +39,12 @@
             h2 {
                 color: $white;
             }
+        }
+    }
+
+    @media screen and (max-width:991px) {
+        .heading {
+            padding: 0;
         }
     }
 }

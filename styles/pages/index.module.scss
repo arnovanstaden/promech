@@ -15,6 +15,10 @@
                 justify-content: center;
                 flex-direction: column;
 
+                .image {
+                    display: none;
+                }
+
                 h1 {
                     font-weight: 600;
                     margin: 0 0 1rem 0;
@@ -28,8 +32,8 @@
                 .buttons {
                     margin-top: 1rem;
 
-                    >:last-child {
-                        margin-left: 1rem;
+                    >:first-child {
+                        margin-right: 1rem;
                     }
                 }
             }
@@ -121,6 +125,54 @@
 
             button {
                 color: $white;
+            }
+        }
+    }
+
+    @media screen and (max-width:991px) {
+        .about {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+
+        .landing {
+            padding: 3rem 0;
+
+            .content {
+                grid-template-columns: 1fr;
+
+                >.image {
+                    display: none;
+                }
+
+                .text {
+                    text-align: center;
+
+                    .image {
+                        display: unset;
+                        padding: 1rem 0;
+                    }
+
+                    .buttons {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+
+                        >:first-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .about {
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     }

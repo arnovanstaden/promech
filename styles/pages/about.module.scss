@@ -64,4 +64,26 @@
             }
         }
     }
+
+    @media screen and (max-width:991px) {
+        .overview {
+            .content {
+                padding: 0;
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        .values {
+            .grid {
+                grid-template-columns: 1fr;
+
+                .value {
+                    &:last-child {
+                        grid-column: unset;
+                    }
+                }
+            }
+        }
+    }
 }

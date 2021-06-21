@@ -14,8 +14,6 @@ import NextImage from "../../components/UI/Library/NextImage/NextImage"
 import styles from "../../styles/pages/projects/[slug].module.scss";
 
 const Project = ({ project }: { project: IProject }) => {
-    console.log(project)
-
     return (
         <Page
             head={{
