@@ -182,3 +182,22 @@ h6 {
     max-width: 1500px;
   }
 }
+
+
+// Slick
+.slick-track {
+  display: flex !important;
+  height: 100%;
+}
+
+.slick-slide {
+  height: 100%;
+
+  >div {
+    margin: 0 0.5rem;
+  }
+}
+
+.slick-list {
+  margin: 0 -0.5rem;
+}

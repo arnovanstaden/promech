@@ -1,10 +1,15 @@
+import React, { Component } from "react";
 import { IProject } from "../../../utils/types";
+import Slider from "react-slick";
+
 
 // Components
 import Project from "../Project/Project"
 
 // Styles
 import styles from "./grid.module.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 interface IProps {
     projects: IProject[]
@@ -13,14 +18,62 @@ interface IProps {
 
 const ProjectGrid = ({ projects, home }: IProps) => {
 
-    // if (featured) {
-    //     // FIX THIS - CAROUSEL
-    //     return (
-    //         projects.map((project, index) => (
-    //             <Project {...project} key={index} />
-    //         ))
-    //     )
-    // }
+    class Slick extends Component {
+
+        render() {
+            const settings = {
+                customPaging: (i) => {
+                    return (
+                        <a className={styles.pageing}>
+                        </a>
+                    );
+                },
+                dots: true,
+                arrows: false,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                draggable: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                cssEase: "linear",
+                pauseOnHover: true,
+                swipeToSlide: true,
+                speed: 500,
+
+                responsive: [
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 2,
+                            infinite: true,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            infinite: true,
+                            arrows: false
+                        }
+                    }
+                ]
+            };
+            return (
+                <Slider {...settings} className={styles.slider}>
+                    {projects.map((project, index) => (
+                        project.home && <Project {...project} key={index} />
+                    ))}
+                </Slider>
+            );
+        }
+    }
+
+
+    if (home) {
+        // FIX THIS - CAROUSEL
+        return <Slick />
+    }
 
     return (
         <div className={styles.grid}>
