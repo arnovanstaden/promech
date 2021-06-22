@@ -13,3 +13,18 @@
         grid-template-columns: 1fr;
     }
 }
+
+.slider {
+    .pageing {
+        display: block;
+        width: 1.5rem;
+        height: 3px;
+        background-color: $red;
+        transition: 0.3s ease-in-out;
+
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
