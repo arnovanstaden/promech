@@ -45,8 +45,9 @@ const About = () => {
           subtitle: "About Us"
         }}
         colour="dark"
+        id="values"
       >
-        <div className={styles.grid}>
+        <div className={styles.grid} >
           <div className={styles.value}>
             <h4>Commitment</h4>
             <hr />
@@ -87,8 +88,9 @@ const About = () => {
           title: "Professional Memberships",
           subtitle: "About Us"
         }}
+        id="memberships"
       >
-        <div className={styles.grid}>
+        <div className={styles.grid} >
           <img src="/images/pages/about/ECSA-Logo.png" alt="ECSA-Logo" />
           <img src="/images/pages/about/GBCSA-Logo.png" alt="GBCSA-Logo" />
           <img src="/images/pages/about/SAIMECHE-Logo.png" alt="SAIMECHE-Logo" />

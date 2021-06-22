@@ -14,9 +14,10 @@ interface IProps {
     };
     colour?: "white" | "grey" | "dark";
     className?: string;
+    id?: string
 }
 
-const Section = ({ children, colour = "white", heading, className }: IProps) => {
+const Section = ({ children, colour = "white", heading, className, id }: IProps) => {
     const classes = ClassNames(
         className,
         styles.section,
@@ -24,7 +25,7 @@ const Section = ({ children, colour = "white", heading, className }: IProps) => 
     )
 
     return (
-        <section className={classes}>
+        <section className={classes} id={id}>
             <Components>
                 {heading &&
                     <div className={styles.heading}>
