@@ -14,82 +14,75 @@ import NextImage from "../../components/UI/Library/NextImage/NextImage"
 import styles from "../../styles/pages/projects/[slug].module.scss";
 
 const Project = ({ project }: { project: IProject }) => {
+
+    const services = project.services.map(service => service.category).join(", ")
+
     return (
         <Page
             head={{
-                title: `${project.title} | PR Engineering`,
+                title: `${project.title} | Promech`,
                 description: `${project.description}`,
                 canonical: `/project/${project.slug}`,
             }}
             className={styles.project}
         >
-            <section className={styles.landing}>
-                <div className={styles.image}>
-                    <NextImage
-                        src={project.thumbnail.asset.url}
-                        alt={project.title}
-                        width={1920}
-                        background
-                        priority
-                    />
-                </div>
-                <div className={styles.overlay}>
-                    <div className={styles.content}>
-                        <div className={styles.content}>
-                            <h1>{project.title}</h1>
-                            <hr />
-                            <p>
-                                <i className="icon-room"></i>
-                                {project.location}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <Section
-                className={styles.details}
+                className={styles.overview}
+                heading={{
+                    title: project.title,
+                    subtitle: project.location
+                }}
             >
                 <div className={styles.grid}>
-                    <div className={styles.stats}>
-                        <ul>
-                            <li>
-                                <span>Scope:</span>{project.services.join(", ")}
-                            </li>
-                            <li>
-                                <span>Date:</span>{project.year}
-                            </li>
-                            <li>
-                                <span>Location:</span>{project.location}
-                            </li>
-                        </ul>
+                    <div className={styles.image}>
+                        <NextImage
+                            src={project.thumbnail.asset.url}
+                            width={600}
+                            alt={project.title}
+                        />
                     </div>
-                    <div className={styles.description}>
-                        <p>{project.description}</p>
+                    <div className={styles.info}>
+                        <div className={styles.group}>
+                            <h4>Description:</h4>
+                            <p>{project.description}</p>
+                        </div>
+                        <div className={`${styles.group} ${styles.services}`}>
+                            <h4>Services:</h4>
+                            <p>{services}</p>
+                        </div>
+                        <div className={styles.group}>
+                            <h4>Client:</h4>
+                            <p>{project.client}</p>
+                        </div>
+                        <div className={styles.group}>
+                            <h4>Year:</h4>
+                            <p>{project.year}</p>
+                        </div>
                     </div>
                 </div>
             </Section>
 
-            <Section
-                className={styles.gallery}
-            >
-                <div className={styles.grid}>
-                    {project.images.map((image, index) => (
-                        <div className={styles.item} key={index}>
-                            <div className={styles.image}>
-                                <div className={styles.overlay}></div>
+            {project.images.length > 0 &&
+                <Section
+                    className={styles.gallery}
+                    heading={{
+                        title: "Project Gallery",
+                        subtitle: project.location
+                    }}
+                >
+                    <div className={styles.grid}>
+                        {project.images.map((image, index) => (
+                            <div className={styles.item} key={index}>
                                 <NextImage
                                     src={image.asset.url}
-                                    alt={project.title}
                                     width={400}
-                                    background
-                                    priority
+                                    alt={project.title}
                                 />
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </Section>
+                        ))}
+                    </div>
+                </Section>
+            }
         </Page>
     )
 }

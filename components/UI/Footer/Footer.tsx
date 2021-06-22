@@ -16,7 +16,7 @@ export default function Footer() {
             <Container>
                 <div className={styles.grid}>
                     <div className={styles.info}>
-                        <img src="/images/branding/Logo-White.svg" alt="PR Engineering Logo" />
+                        <img src="/images/branding/Logo-White.svg" alt="Promech Logo" />
                         <p>Promech Engineering is a dynamic and experienced professional mechanical consulting engineering firm with the capacity to provide comprehensive and value-driven design and project management services.</p>
                         <div className={styles.copy}>
                             <p>© {currentYear} - Promech Engineering LTD.</p>
