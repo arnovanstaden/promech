@@ -9,6 +9,7 @@ import "../assets/icons/style.css";
 import "typeface-roboto";
 import "typeface-montserrat";
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>

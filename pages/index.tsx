@@ -19,6 +19,7 @@ import ServicesGrid from "../components/Content/Services/Services"
 // Styles
 import styles from "../styles/pages/index.module.scss";
 
+
 interface IProps {
   projects: IProject[]
   services: IService[]
