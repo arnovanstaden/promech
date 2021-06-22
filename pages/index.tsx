@@ -36,6 +36,10 @@ const Home = ({ projects, services }: IProps) => {
           align="Center"
           width={600}
         />
+        <div className={styles.logo}>
+          <div></div>
+          <img src="/images/branding/LogoMark.svg" alt="" />
+        </div>
       </div>
     )
   }
