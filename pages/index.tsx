@@ -61,7 +61,7 @@ const Home = ({ projects, services }: IProps) => {
                 Professional Mechanical
                 Engineering Services
               </h1>
-              <p> Promech Engineering is a dynamic and experienced consulting engineering firm with the capacity to provide comprehensive and value-driven design and project management services.</p>
+              <p>Promech Engineering is a dynamic and experienced consulting engineering firm with the capacity to provide comprehensive and value-driven design and project management services.</p>
               <LandingImage />
               <div className={styles.buttons}>
                 <Button link="/services">

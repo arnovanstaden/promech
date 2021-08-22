@@ -15,11 +15,11 @@ const Banner = () => {
                 <Container>
                     <div className={styles.content}>
                         <div>
-                            <h4>45</h4>
+                            <h4>172</h4>
                             <p>Successful <br /> Projects <br /> Completed</p>
                         </div>
                         <div>
-                            <h4>55</h4>
+                            <h4>58</h4>
                             <p>Years Collective <br /> Team Experience</p>
                         </div>
                     </div>
