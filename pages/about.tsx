@@ -2,7 +2,6 @@
 import Page from "../components/UI/Library/Page/Page";
 import Section from "../components/UI/Library/Section/Section";
 import Container from "../components/UI/Library/Container/Container";
-import NextImage from "../components/UI/Library/NextImage/NextImage";
 import ClientBanner from "../components/Content/ClientBanner/ClientBanner";
 import StatsBanner from "../components/Content/StatsBanner/StatsBanner";
 
