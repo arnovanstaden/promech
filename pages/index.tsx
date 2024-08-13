@@ -30,12 +30,13 @@ const Home = ({ projects, services }: IProps) => {
   // Subcomponents
   const LandingImage = () => {
     return (
-      <div className={styles.image}>
+      <div className={styles.imageContainer}>
         <Image
           src="/images/pages/home/landing.png"
           alt="Gears"
-          width={600}
-          height={400}
+          priority
+          fill
+          className={styles.image}
         />
         <div className={styles.logo}>
           <div></div>
@@ -62,7 +63,6 @@ const Home = ({ projects, services }: IProps) => {
                 Engineering Services
               </h1>
               <p>Promech Engineering is a dynamic and experienced consulting engineering firm with the capacity to provide comprehensive and value-driven design and project management services.</p>
-              <LandingImage />
               <div className={styles.buttons}>
                 <Button link="/services">
                   Our Services

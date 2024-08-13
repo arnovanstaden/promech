@@ -2,213 +2,218 @@
 
 
 .home {
+  .landing {
+    .content {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      min-height: 90vh;
 
-    .landing {
+      .text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 
-        .content {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            min-height: 90vh;
-
-            .text {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-
-                .image {
-                    display: none;
-
-
-                }
-
-                h1 {
-                    font-weight: 600;
-                    margin: 0 0 1rem 0;
-                }
-
-                p {
-                    font-weight: 400;
-                    font-size: 0.95rem;
-                }
-
-                .buttons {
-                    margin-top: 1rem;
-
-                    >:first-child {
-                        margin-right: 1rem;
-                    }
-                }
-            }
-
-
-            .image {
-                position: relative;
-
-                img {
-                    opacity: 0.5;
-                }
-
-                .logo {
-                    position: absolute;
-                    z-index: 10;
-                    top: 60%;
-                    right: 0;
-                    transform: translateY(-50%);
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    >div {
-                        height: 5rem;
-                        width: 3px;
-                        background-color: $red;
-                        margin-bottom: 1rem;
-                    }
-
-                    img {
-                        width: 7.5rem;
-                        opacity: 1;
-                    }
-                }
-            }
+        .image {
+          display: none;
         }
 
+        h1 {
+          font-weight: 600;
+          margin: 0 0 1rem 0;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 0.95rem;
+        }
+
+        .buttons {
+          margin-top: 1rem;
+
+          >:first-child {
+            margin-right: 1rem;
+          }
+        }
+      }
+
+
+      .imageContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .image {
+          opacity: 0.5;
+          object-fit: contain;
+        }
+
+        .logo {
+          position: absolute;
+          z-index: 10;
+          top: 60%;
+          right: 0;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          >div {
+            height: 5rem;
+            width: 3px;
+            background-color: $red;
+            margin-bottom: 1rem;
+          }
+
+          img {
+            width: 7.5rem;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+  }
+
+  .about {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+
+      .item {
+        padding: 2rem;
+        background-color: $white;
+        transition: 0.2s ease-in-out;
+
+        img {
+          width: 5rem;
+        }
+
+        h4 {
+          margin: 1.5rem 0 0 0;
+        }
+
+        hr {
+          @include reset-hr;
+          height: 1px;
+          background-color: $grey;
+          width: 100%;
+          margin: 1.5rem 0 1.5rem -2rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        button {
+          @include reset-button;
+          margin-top: 1.5rem;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+
+          i {
+            margin-left: 0.5rem;
+            padding: 0.25rem;
+            background-color: $red;
+            color: $white;
+          }
+        }
+
+        &:hover {
+          background-color: $red;
+
+          h4,
+          p,
+          button {
+            color: $white !important;
+          }
+        }
+      }
+    }
+  }
+
+  .services {
+    background-image: url("/images/pages/home/services.png");
+    background-position: top right;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+
+
+    .button {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+  }
+
+  .projects {
+    .button {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+
+      button {
+        color: $white;
+      }
+    }
+  }
+
+  @media screen and (max-width:991px) {
+    .about {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  @media screen and (max-width:768px) {
+
+    .landing {
+      padding: 3rem 0;
+
+      .content {
+        grid-template-columns: 1fr;
+
+        >.image {
+          display: none;
+        }
+
+        .text {
+          text-align: center;
+
+          .image {
+            display: unset;
+            padding: 1rem 0;
+
+            .logo {
+              display: none;
+            }
+          }
+
+          .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            >:first-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        .imageContainer {
+          .logo {
+            display: none;
+          }
+        }
+      }
     }
 
     .about {
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-
-            .item {
-                padding: 2rem;
-                background-color: $white;
-                transition: 0.2s ease-in-out;
-
-                img {
-                    width: 5rem;
-                }
-
-                h4 {
-                    margin: 1.5rem 0 0 0;
-                }
-
-                hr {
-                    @include reset-hr;
-                    height: 1px;
-                    background-color: $grey;
-                    width: 100%;
-                    margin: 1.5rem 0 1.5rem -2rem;
-                }
-
-                p {
-                    font-size: 0.9rem;
-                }
-
-                button {
-                    @include reset-button;
-                    margin-top: 1.5rem;
-                    font-weight: 500;
-                    display: flex;
-                    align-items: center;
-
-                    i {
-                        margin-left: 0.5rem;
-                        padding: 0.25rem;
-                        background-color: $red;
-                        color: $white;
-                    }
-                }
-
-                &:hover {
-                    background-color: $red;
-
-                    h4,
-                    p,
-                    button {
-                        color: $white !important;
-                    }
-                }
-            }
-        }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
-
-    .services {
-        background-image: url("/images/pages/home/services.png");
-        background-position: top right;
-        background-size: 80% auto;
-        background-repeat: no-repeat;
-
-
-        .button {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-    }
-
-    .projects {
-        .button {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-
-            button {
-                color: $white;
-            }
-        }
-    }
-
-    @media screen and (max-width:991px) {
-        .about {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-    }
-
-    @media screen and (max-width:768px) {
-
-        .landing {
-            padding: 3rem 0;
-
-            .content {
-                grid-template-columns: 1fr;
-
-                >.image {
-                    display: none;
-                }
-
-                .text {
-                    text-align: center;
-
-                    .image {
-                        display: unset;
-                        padding: 1rem 0;
-
-                        .logo {
-                            display: none;
-                        }
-                    }
-
-                    .buttons {
-                        display: flex;
-                        justify-content: center;
-                        flex-wrap: wrap;
-
-                        >:first-child {
-                            margin-right: 0;
-                        }
-                    }
-                }
-            }
-        }
-
-        .about {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    }
+  }
 }

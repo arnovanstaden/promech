@@ -64,6 +64,10 @@
   @media screen and (max-width: 991px) {
     .overview .grid {
       grid-template-columns: 1fr;
+
+      .imageContainer {
+        height: 300px;
+      }
     }
 
     .gallery .grid {
