@@ -1,54 +1,63 @@
 @import "../../../styles/variables.scss";
 
 .project {
-    background-color: $white;
+  background-color: $white;
 
-    .content {
-        padding: 2rem 2rem 0 2rem;
+  .imageContainer {
+    position: relative;
+    height: 300px;
 
-        h4 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0 0 0.75rem 0;
-        }
+    .image {
+      object-fit: cover;
+    }
+  }
 
-        h5 {
-            color: $red;
-            font-weight: 600;
-            font-size: 1rem;
-            margin: 0 0 1.5rem 0;
-        }
+  .content {
+    padding: 2rem 2rem 0 2rem;
 
-        p {
-            font-weight: 300;
-            font-size: 0.9rem;
-            margin: 0
-        }
-
-        hr {
-            @include reset-hr;
-            background-color: $lightgrey;
-            height: 1px;
-            margin-top: 2.5rem;
-        }
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 0.75rem 0;
     }
 
-    a {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-
-        i {
-            margin-left: 0.5rem;
-        }
-
-        &:hover {
-            background-color: $red;
-            color: $white;
-        }
+    h5 {
+      color: $red;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0 0 1.5rem 0;
     }
+
+    p {
+      font-weight: 300;
+      font-size: 0.9rem;
+      margin: 0
+    }
+
+    hr {
+      @include reset-hr;
+      background-color: $lightgrey;
+      height: 1px;
+      margin-top: 2.5rem;
+    }
+  }
+
+  a {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    i {
+      margin-left: 0.5rem;
+    }
+
+    &:hover {
+      background-color: $red;
+      color: $white;
+    }
+  }
 
 
 }

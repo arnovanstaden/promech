@@ -8,7 +8,6 @@ import { IProject, IService } from "../utils/types";
 import Page from "../components/UI/Library/Page/Page";
 import Container from "../components/UI/Library/Container/Container";
 import Button from "../components/UI/Library/Button/Button";
-import NextImage from "../components/UI/Library/NextImage/NextImage";
 import Section from "../components/UI/Library/Section/Section"
 import ProjectGrid from "../components/Content/ProjectGrid/ProjectGrid"
 import Contact from "../components/Content/Contact/Contact"
@@ -18,6 +17,7 @@ import ServicesGrid from "../components/Content/Services/Services"
 
 // Styles
 import styles from "../styles/pages/index.module.scss";
+import Image from 'next/image';
 
 
 interface IProps {
@@ -31,11 +31,11 @@ const Home = ({ projects, services }: IProps) => {
   const LandingImage = () => {
     return (
       <div className={styles.image}>
-        <NextImage
+        <Image
           src="/images/pages/home/landing.png"
           alt="Gears"
-          align="Center"
           width={600}
+          height={400}
         />
         <div className={styles.logo}>
           <div></div>
@@ -88,46 +88,40 @@ const Home = ({ projects, services }: IProps) => {
       >
         <div className={styles.grid}>
           <Link href="/about">
-            <a>
-              <div className={styles.item}>
-                <img src="/images/pages/home/about-icon-1.svg" alt="Human Face and Gear Icon" />
-                <h4>Who We Are</h4>
-                <hr />
-                <p>Learn more about who we are, our company &amp; values and our professional memberships.</p>
-                <button>
-                  Read More
-                  <i className="icon-arrow_right"></i>
-                </button>
-              </div>
-            </a>
+            <div className={styles.item}>
+              <img src="/images/pages/home/about-icon-1.svg" alt="Human Face and Gear Icon" />
+              <h4>Who We Are</h4>
+              <hr />
+              <p>Learn more about who we are, our company &amp; values and our professional memberships.</p>
+              <button>
+                Read More
+                <i className="icon-arrow_right"></i>
+              </button>
+            </div>
           </Link>
           <Link href="/services">
-            <a>
-              <div className={styles.item}>
-                <img src="/images/pages/home/about-icon-2.svg" alt="Settings Icon" />
-                <h4>What We Do</h4>
-                <hr />
-                <p>Learn more about comprehensive and value-driven design and project management services.</p>
-                <button>
-                  Read More
-                  <i className="icon-arrow_right"></i>
-                </button>
-              </div>
-            </a>
+            <div className={styles.item}>
+              <img src="/images/pages/home/about-icon-2.svg" alt="Settings Icon" />
+              <h4>What We Do</h4>
+              <hr />
+              <p>Learn more about comprehensive and value-driven design and project management services.</p>
+              <button>
+                Read More
+                <i className="icon-arrow_right"></i>
+              </button>
+            </div>
           </Link>
           <Link href="/projects">
-            <a>
-              <div className={styles.item}>
-                <img src="/images/pages/home/about-icon-3.svg" alt="Factory Icon" />
-                <h4>What We’ve Done</h4>
-                <hr />
-                <p>Take a look at the successful projects we've contributed our unique value to in the past.</p>
-                <button>
-                  Read More
-                  <i className="icon-arrow_right"></i>
-                </button>
-              </div>
-            </a>
+            <div className={styles.item}>
+              <img src="/images/pages/home/about-icon-3.svg" alt="Factory Icon" />
+              <h4>What We’ve Done</h4>
+              <hr />
+              <p>Take a look at the successful projects we've contributed our unique value to in the past.</p>
+              <button>
+                Read More
+                <i className="icon-arrow_right"></i>
+              </button>
+            </div>
           </Link>
         </div>
       </Section>
@@ -179,7 +173,6 @@ const Home = ({ projects, services }: IProps) => {
       >
         <Contact />
       </Section>
-
     </Page>
   )
 }
