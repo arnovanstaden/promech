@@ -1,134 +1,141 @@
 @import "../variables.scss";
 
 .services {
+  .list {
+    background-color: rgba($lightgrey, 0.1);
+    padding: 4rem 0;
 
-    .list {
-        background-color: rgba($lightgrey, 0.1);
-        padding: 4rem 0;
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
+      .service {
+        display: flex;
+        min-height: 20rem;
+        background-color: $white;
+        border: 2px solid $red;
 
-            .service {
-                display: flex;
-                min-height: 20rem;
-                background-color: $white;
-                border: 2px solid $red;
+        .imageContainer {
+          height: 400px;
+          width: 40%;
+          position: relative;
 
-                .image {
-                    width: 40%;
-                }
-
-                .content {
-                    width: 60%;
-                    padding: 2rem 2.5rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-
-
-                    h4 {
-                        font-size: 1.4rem;
-                        margin: 0;
-                    }
-
-                    hr {
-                        @include reset-hr;
-                        height: 1px;
-                        background-color: $grey;
-                        width: 100%;
-                        margin: 1.5rem 0 1.5rem -2.5rem;
-                    }
-
-                    ul {
-                        @include reset-list;
-
-                        li {
-                            font-size: 1.1rem;
-                            margin: 0.25rem;
-                            display: flex;
-                            align-items: center;
-                            text-transform: capitalize;
-
-                            i {
-                                color: $red;
-                                margin-right: 0.25rem;
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(even) {
-                    flex-direction: row-reverse;
-
-                    .content {
-                        text-align: right;
-
-                        hr {
-                            @include reset-hr;
-                            margin: 1.5rem 0 1.5rem 2.5rem;
-                        }
-
-                        ul {
-
-                            li {
-                                flex-direction: row-reverse;
-
-                                i {
-                                    margin: 0 0 0 0.25rem;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+          .image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
         }
-    }
 
-    @media screen and (max-width:600px) {
-        .list .grid .service {
-            flex-direction: column;
+        .content {
+          width: 60%;
+          padding: 2rem 2.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
 
-            &:nth-child(even) {
-                flex-direction: column;
 
-                .content {
-                    text-align: left;
+          h4 {
+            font-size: 1.4rem;
+            margin: 0;
+          }
 
-                    hr {
-                        margin: 1.5rem 0 1.5rem -1rem;
-                    }
+          hr {
+            @include reset-hr;
+            height: 1px;
+            background-color: $grey;
+            width: 100%;
+            margin: 1.5rem 0 1.5rem -2.5rem;
+          }
 
-                    ul {
+          ul {
+            @include reset-list;
 
-                        li {
-                            flex-direction: row;
+            li {
+              font-size: 1.1rem;
+              margin: 0.25rem;
+              display: flex;
+              align-items: center;
+              text-transform: capitalize;
 
-                            i {
-                                margin: 0 0.25rem 0 0;
-                            }
-                        }
-                    }
-                }
+              i {
+                color: $red;
+                margin-right: 0.25rem;
+              }
             }
-
-            .image {
-                width: 100%;
-                height: 12.5rem;
-            }
-
-            .content {
-                width: 100%;
-                padding: 2rem 1rem;
-
-                hr {
-                    margin: 1.5rem 0 1.5rem -1rem;
-                }
-
-                ul li {}
-            }
+          }
         }
+
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+
+          .content {
+            text-align: right;
+
+            hr {
+              @include reset-hr;
+              margin: 1.5rem 0 1.5rem 2.5rem;
+            }
+
+            ul {
+
+              li {
+                flex-direction: row-reverse;
+
+                i {
+                  margin: 0 0 0 0.25rem;
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  }
+
+  @media screen and (max-width:600px) {
+    .list .grid .service {
+      flex-direction: column;
+
+      &:nth-child(even) {
+        flex-direction: column;
+
+        .content {
+          text-align: left;
+
+          hr {
+            margin: 1.5rem 0 1.5rem -1rem;
+          }
+
+          ul {
+
+            li {
+              flex-direction: row;
+
+              i {
+                margin: 0 0.25rem 0 0;
+              }
+            }
+          }
+        }
+      }
+
+      .imageContainer {
+        width: 100%;
+        height: 12.5rem;
+      }
+
+      .content {
+        width: 100%;
+        padding: 2rem 1rem;
+
+        hr {
+          margin: 1.5rem 0 1.5rem -1rem;
+        }
+
+        ul li {}
+      }
+    }
+  }
 }

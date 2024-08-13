@@ -1,81 +1,89 @@
 @import "../../variables.scss";
 
 .project {
-    .overview {
-        padding-bottom: 4rem;
+  .overview {
+    padding-bottom: 4rem;
 
-        .grid {
-            display: grid;
-            grid-template-columns: 60% 40%;
+    .grid {
+      display: grid;
+      grid-template-columns: 60% 40%;
 
-            .info {
-                padding: 1.5rem;
+      .imageContainer {
+        position: relative;
+      }
 
-                .group {
-                    margin-bottom: 1.5rem;
+      .info {
+        padding: 1.5rem;
 
-                    h4 {
-                        margin: 0 0 0.5rem 0;
-                        padding-bottom: 0.2rem;
-                        border-bottom: 1.5px solid $lightgrey;
-                    }
+        .group {
+          margin-bottom: 1.5rem;
 
-                    &.services p {
-                        color: $red;
-                        font-weight: 500;
-                    }
-                }
-            }
+          h4 {
+            margin: 0 0 0.5rem 0;
+            padding-bottom: 0.2rem;
+            border-bottom: 1.5px solid $lightgrey;
+          }
+
+          &.services p {
+            color: $red;
+            font-weight: 500;
+          }
         }
+      }
+    }
+  }
+
+  .gallery {
+    padding-top: 0;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+
+
+      .item {
+        height: 40vh;
+        position: relative;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    .overview .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .overview .grid {
+      grid-template-columns: 1fr;
+
+      .imageContainer {
+        height: 300px;
+      }
     }
 
-    .gallery {
-        padding-top: 0;
+    .gallery .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+  @media screen and (max-width: 600px) {
 
-
-            .item {
-                height: 40vh;
-                position: relative;
-                cursor: pointer;
-                transition: 0.3s ease-in-out;
-
-                &:hover {
-                    opacity: 0.6;
-                }
-            }
-        }
+    .overview .grid .info {
+      padding: 2rem 0 0 0;
     }
 
-    @media screen and (min-width: 1600px) {
-        .overview .grid {
-            grid-template-columns: 1fr 1fr;
-        }
+    .gallery .grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
-
-    @media screen and (max-width: 991px) {
-        .overview .grid {
-            grid-template-columns: 1fr;
-        }
-
-        .gallery .grid {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-
-        .overview .grid .info {
-            padding: 2rem 0 0 0;
-        }
-
-        .gallery .grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-    }
+  }
 }

@@ -7,12 +7,11 @@ import { IService } from "../utils/types";
 import Page from "../components/UI/Library/Page/Page";
 import Section from "../components/UI/Library/Section/Section";
 import Container from "../components/UI/Library/Container/Container";
-import NextImage from "../components/UI/Library/NextImage/NextImage";
 import ServicesGrid from "../components/Content/Services/Services";
-
 
 // Styles
 import styles from "../styles/pages/services.module.scss";
+import Image from 'next/image';
 
 const Services = ({ services }: { services: IService[] }) => {
   return (
@@ -31,9 +30,7 @@ const Services = ({ services }: { services: IService[] }) => {
           subtitle: "Comprehensive & Value-Driven"
         }}
       >
-
         <ServicesGrid services={services} />
-
       </Section>
 
       <section className={styles.list}>
@@ -41,13 +38,12 @@ const Services = ({ services }: { services: IService[] }) => {
           <div className={styles.grid}>
             {services.map((service, index) => (
               <div className={styles.service} key={index} id={`${service.category.replace(/ /g, "-").toLowerCase()}`}>
-                <div className={styles.image}>
-                  <NextImage
-                    background
-                    width={600}
+                <div className={styles.imageContainer}>
+                  <Image
+                    fill
                     src={service.image.asset.url}
                     alt={service.category}
-                    align='Center'
+                    className={styles.image}
                   />
                 </div>
                 <div className={styles.content}>
