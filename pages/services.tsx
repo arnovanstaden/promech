@@ -71,7 +71,7 @@ export default Services
 
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await await client.query({
+  const { data } = await await client.query<any>({
     query: gql`
         query {
           allService {

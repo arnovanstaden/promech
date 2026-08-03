@@ -10,15 +10,15 @@ import styles from "./header.module.scss";
 
 export default function Header() {
   const router = useRouter();
-  const mobileNavRef = useRef() as React.MutableRefObject<HTMLElement>;;
+  const mobileNavRef = useRef<HTMLElement>(null);
 
   // Handlers
   const handleNavToggle = () => {
-    mobileNavRef.current.classList.toggle(styles.open)
+    mobileNavRef.current?.classList.toggle(styles.open)
   }
 
   const handleNavClose = () => {
-    mobileNavRef.current.classList.remove(styles.open)
+    mobileNavRef.current?.classList.remove(styles.open)
   }
 
   useEffect(() => {

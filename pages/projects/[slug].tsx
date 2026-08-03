@@ -93,7 +93,7 @@ export default Project
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   // FIX THIS - GraphQL Vars
-  const { data } = await client.query({
+  const { data } = await client.query<any>({
     query: gql`
           query GetProjects {
             allProject {
@@ -135,7 +135,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await client.query({
+  const { data } = await client.query<any>({
     query: gql`
           query GetProjects {
             allProject {

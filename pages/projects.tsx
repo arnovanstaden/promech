@@ -38,7 +38,7 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
 export default Projects
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await await client.query({
+  const { data } = await await client.query<any>({
     query: gql`
         query {
           allProject {

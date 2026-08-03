@@ -180,7 +180,7 @@ const Home = ({ projects, services }: IProps) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await await client.query({
+  const { data } = await await client.query<any>({
     query: gql`
         query {
           allProject {
