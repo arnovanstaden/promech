@@ -124,7 +124,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         `,
   });
 
-  const project = data.allProject.filter(project => project.slug.current === params.slug)[0]
+  const slug = params?.slug as string
+  const project = data.allProject.filter((project) => project.slug.current === slug)[0]
 
   return {
     props: {
