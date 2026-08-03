@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from 'next/router'
 
 // Components
 import Container from "../Library/Container/Container"
@@ -8,7 +7,6 @@ import Container from "../Library/Container/Container"
 import styles from "./footer.module.scss";
 
 export default function Footer() {
-    const router = useRouter();
     const currentYear = new Date().getFullYear();
 
     return (

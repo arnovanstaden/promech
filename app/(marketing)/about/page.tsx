@@ -1,23 +1,22 @@
 // Components
-import Page from "../components/UI/Library/Page/Page";
-import Section from "../components/UI/Library/Section/Section";
-import Container from "../components/UI/Library/Container/Container";
-import ClientBanner from "../components/Content/ClientBanner/ClientBanner";
-import StatsBanner from "../components/Content/StatsBanner/StatsBanner";
+import Page from "../../../components/UI/Library/Page/Page";
+import Section from "../../../components/UI/Library/Section/Section";
+import ClientBanner from "../../../components/Content/ClientBanner/ClientBanner";
+import StatsBanner from "../../../components/Content/StatsBanner/StatsBanner";
+import { buildMetadata } from "../../../utils/metadata";
 
 // Styles
-import styles from "../styles/pages/about.module.scss";
+import styles from "../../../styles/pages/about.module.scss";
+
+export const metadata = buildMetadata({
+  title: "About | ProMech",
+  description: "FIX THIS",
+  canonical: "/about",
+})
 
 const About = () => {
   return (
-    <Page
-      head={{
-        title: "About | ProMech",
-        description: "FIX THIS",
-        canonical: "/",
-      }}
-      className={styles.about}
-    >
+    <Page className={styles.about}>
       <Section
         className={styles.overview}
         heading={{
@@ -103,4 +102,3 @@ const About = () => {
 }
 
 export default About
-

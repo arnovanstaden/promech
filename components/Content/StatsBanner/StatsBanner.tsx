@@ -1,3 +1,5 @@
+"use client"
+
 import { Parallax } from 'react-parallax';
 import ClassNames from "classnames";
 

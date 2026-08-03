@@ -1,5 +1,7 @@
+"use client"
+
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useRef, useEffect } from "react";
 
 // Components
@@ -9,7 +11,7 @@ import Components from "../Library/Container/Container"
 import styles from "./header.module.scss";
 
 export default function Header() {
-  const router = useRouter();
+  const pathname = usePathname();
   const mobileNavRef = useRef<HTMLElement>(null);
 
   // Handlers
@@ -22,33 +24,33 @@ export default function Header() {
   }
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', handleNavClose)
-  })
+    handleNavClose()
+  }, [pathname])
 
   const Menu = () => {
     return (
       <ul className={styles.menu}>
-        <li className={router.pathname == "/" ? styles.active : ""}>
+        <li className={pathname == "/" ? styles.active : ""}>
           <Link href="/">
             Home
           </Link>
         </li>
-        <li className={router.pathname == "/about" ? styles.active : ""}>
+        <li className={pathname == "/about" ? styles.active : ""}>
           <Link href="/about">
             About
           </Link>
         </li>
-        <li className={router.pathname == "/services" ? styles.active : ""}>
+        <li className={pathname == "/services" ? styles.active : ""}>
           <Link href="/services">
             Services
           </Link>
         </li>
-        <li className={router.pathname == "/projects" ? styles.active : ""}>
+        <li className={pathname == "/projects" ? styles.active : ""}>
           <Link href="/projects">
             Projects
           </Link>
         </li>
-        <li className={router.pathname == "/contact" ? styles.active : ""}>
+        <li className={pathname == "/contact" ? styles.active : ""}>
           <Link href="/contact">
             Contact
           </Link>
