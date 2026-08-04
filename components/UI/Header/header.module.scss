@@ -1,184 +1,185 @@
 @use "../../../styles/variables.scss" as *;
 
 .header {
-    background-color: $white;
-    position: relative;
-    border-bottom: 0.5px solid $lightgrey;
+  background-color: $white;
+  position: relative;
+  border-bottom: 0.5px solid $lightgrey;
+
+  .nav {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+
+    >I {
+      display: none;
+    }
+
+    >* {
+      padding-top: 1rem;
+    }
+
+    .logo {
+      border-right: 0.5px solid $lightgrey;
+      padding-bottom: 0.5rem;
+      padding-right: 1rem;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 2rem;
+      }
+    }
+
+    .menu {
+      @include reset-list;
+      display: flex;
+      justify-content: space-around;
+      padding: 0 2rem;
+      align-items: flex-end;
+
+      li {
+        padding-bottom: 1rem;
+
+        a {
+          font-weight: 600;
+          letter-spacing: 0.5px;
+        }
+
+        &.active {
+          border-bottom: 3px solid $red;
+        }
+      }
+    }
+
+    .contact {
+      display: flex;
+      border-left: 0.5px solid $lightgrey;
+      align-items: flex-end;
+      padding-bottom: 1rem;
+      color: $red;
+      justify-content: flex-end;
+
+
+      >div {
+        display: flex;
+        align-items: center;
+
+        i {
+          margin-right: 0.5rem;
+        }
+
+
+        a {
+          font-weight: 500;
+        }
+      }
+    }
+
+  }
+
+  .mobileNav {
+    display: none;
+  }
+
+  @media screen and (max-width:1200px) {
+    .nav {
+      grid-template-columns: 20% 60% 20%;
+
+      .menu {
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width:991px) {
+    .nav {
+      grid-template-columns: 20% 80%;
+
+      .menu {
+        padding-top: 1rem;
+      }
+
+      .contact {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width:768px) {
 
     .nav {
-        display: grid;
-        grid-template-columns: 15% 70% 15%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-        >I {
-            display: none;
-        }
-
-        >* {
-            padding-top: 1rem;
-        }
-
-        .logo {
-            border-right: 0.5px solid $lightgrey;
-            display: flex;
-            align-items: center;
-            padding-bottom: 0.5rem;
-
-            img {
-                width: 80%;
-            }
-        }
-
-        .menu {
-            @include reset-list;
-            display: flex;
-            justify-content: space-around;
-            padding: 0 2rem;
-            align-items: flex-end;
-
-            li {
-                padding-bottom: 1rem;
-
-                a {
-                    font-weight: 600;
-                    letter-spacing: 0.5px;
-                }
-
-                &.active {
-                    border-bottom: 3px solid $red;
-                }
-            }
-        }
-
-        .contact {
-            display: flex;
-            border-left: 0.5px solid $lightgrey;
-            align-items: flex-end;
-            padding-bottom: 1rem;
-            color: $red;
-            justify-content: flex-end;
-
-
-            >div {
-                display: flex;
-                align-items: center;
-
-                i {
-                    margin-right: 0.5rem;
-                }
-
-
-                a {
-                    font-weight: 500;
-                }
-            }
-        }
-
-    }
-
-    .mobileNav {
-        display: none;
-    }
-
-    @media screen and (max-width:1200px) {
-        .nav {
-            grid-template-columns: 20% 60% 20%;
-
-            .menu {
-                padding: 0 1rem;
-            }
-        }
-    }
-
-    @media screen and (max-width:991px) {
-        .nav {
-            grid-template-columns: 20% 80%;
-
-            .menu {
-                padding-top: 1rem;
-            }
-
-            .contact {
-                display: none;
-            }
-        }
-    }
-
-    @media screen and (max-width:768px) {
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            >i {
-                display: block;
-                background-color: $red;
-                color: $white;
-                font-weight: 500;
-                font-size: 1.25rem;
-                padding: 0.25rem;
-            }
-
-            .logo {
-                border: none;
-
-                img {
-                    width: 10rem;
-                }
-            }
-
-            .menu {
-                display: none;
-            }
-        }
-    }
-
-    .mobileNav {
-        z-index: 100;
+      >i {
         display: block;
-        background-color: $grey;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        transition: 0.3s ease-in-out;
+        background-color: $red;
+        color: $white;
+        font-weight: 500;
+        font-size: 1.25rem;
+        padding: 0.25rem;
+      }
 
-        >i {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            color: $red;
-            font-size: 1.25rem;
-            padding: 1rem;
-            cursor: pointer;
+      .logo {
+        border: none;
+
+        img {
+          width: 10rem;
         }
+      }
 
-
-        .menu {
-            @include reset-list;
-            padding: 0 1rem;
-
-            li {
-                color: $white;
-                text-align: center;
-                margin: 0.75rem 0;
-                font-size: 1.5rem;
-
-                &.active {
-                    color: $red;
-                }
-            }
-        }
-
-        &.open {
-            width: 100vw;
-        }
+      .menu {
+        display: none;
+      }
     }
+  }
+
+  .mobileNav {
+    z-index: 100;
+    display: block;
+    background-color: $grey;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+
+    >i {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      color: $red;
+      font-size: 1.25rem;
+      padding: 1rem;
+      cursor: pointer;
+    }
+
+
+    .menu {
+      @include reset-list;
+      padding: 0 1rem;
+
+      li {
+        color: $white;
+        text-align: center;
+        margin: 0.75rem 0;
+        font-size: 1.5rem;
+
+        &.active {
+          color: $red;
+        }
+      }
+    }
+
+    &.open {
+      width: 100vw;
+    }
+  }
 
 
 }
