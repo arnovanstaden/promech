@@ -1,7 +1,5 @@
 import Link from "next/link"
-import { gql } from "@apollo/client"
-import { client } from "../../utils/apollo-client"
-import { IProject, IService } from "../../utils/types"
+import { getFeaturedProjects, getServices } from "../../sanity/lib/api"
 import { buildMetadata } from "../../utils/metadata"
 
 // Components
@@ -25,44 +23,11 @@ export const metadata = buildMetadata({
   canonical: "/",
 })
 
-async function getData() {
-  const { data } = await client.query<any>({
-    query: gql`
-        query {
-          allProject {
-            title
-            client
-            location
-            description
-            home
-            services {
-              category
-            }
-            slug {
-              current
-            }
-            thumbnail {
-              asset {
-                url
-              }
-            }
-          }
-          allService {
-            category
-            services
-          }
-          }
-      `,
-  });
-
-  return {
-    projects: data.allProject as IProject[],
-    services: data.allService as IService[],
-  }
-}
-
 const Home = async () => {
-  const { projects, services } = await getData()
+  const [projects, services] = await Promise.all([
+    getFeaturedProjects(),
+    getServices(),
+  ])
 
   return (
     <Page className={styles.home}>

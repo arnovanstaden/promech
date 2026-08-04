@@ -10,11 +10,9 @@
     "sanity:typegen": "sanity schema extract && sanity typegen generate"
   },
   "dependencies": {
-    "@apollo/client": "^4.2.9",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^6.8.0",
     "classnames": "^2.5.1",
-    "graphql": "^17.0.2",
     "next": "16.2.12",
     "next-sanity": "^13.2.3",
     "react": "19.2.8",

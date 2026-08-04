@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
-import { client } from "../../../../utils/apollo-client";
-import { gql } from "@apollo/client";
-import { IProject } from "../../../../utils/types";
+import { getProjectBySlug, getProjectSlugs } from "../../../../sanity/lib/api";
 import { buildMetadata } from "../../../../utils/metadata";
 
 // Components
@@ -16,45 +14,9 @@ interface IProps {
   params: Promise<{ slug: string }>
 }
 
-async function getProject(slug: string) {
-  // FIX THIS - GraphQL Vars
-  const { data } = await client.query<any>({
-    query: gql`
-          query GetProjects {
-            allProject {
-                title
-                client
-                location
-                description
-                home
-                year
-                services {
-                category
-                }
-                slug {
-                current
-                }
-                thumbnail {
-                asset {
-                    url
-                }
-                }
-                images {
-                    asset {
-                        url
-                        }
-                }
-            }
-            }
-        `,
-  });
-
-  return data.allProject.find((project) => project.slug.current === slug) as IProject | undefined
-}
-
 export async function generateMetadata({ params }: IProps) {
   const { slug } = await params
-  const project = await getProject(slug)
+  const project = await getProjectBySlug(slug)
 
   if (!project) return {}
 
@@ -66,26 +28,16 @@ export async function generateMetadata({ params }: IProps) {
 }
 
 export async function generateStaticParams() {
-  const { data } = await client.query<any>({
-    query: gql`
-          query GetProjects {
-            allProject {
-                slug {
-                current
-                }
-            }
-          }
-        `,
-  });
+  const projects = await getProjectSlugs()
 
-  return data.allProject.map((project) => ({
-    slug: project.slug.current,
+  return projects.map((project) => ({
+    slug: project.slug,
   }))
 }
 
 const Project = async ({ params }: IProps) => {
   const { slug } = await params
-  const project = await getProject(slug)
+  const project = await getProjectBySlug(slug)
 
   if (!project) notFound()
 

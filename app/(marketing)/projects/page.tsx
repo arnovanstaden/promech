@@ -1,6 +1,4 @@
-import { gql } from "@apollo/client";
-import { client } from "../../../utils/apollo-client";
-import { IProject } from "../../../utils/types";
+import { getProjects } from "../../../sanity/lib/api";
 import { buildMetadata } from "../../../utils/metadata";
 
 // Components
@@ -17,37 +15,8 @@ export const metadata = buildMetadata({
   canonical: "/projects",
 })
 
-async function getData() {
-  const { data } = await client.query<any>({
-    query: gql`
-        query {
-          allProject {
-            title
-            client
-            location
-            description
-            home
-            services {
-              category
-            }
-            slug {
-              current
-            }
-            thumbnail {
-              asset {
-                url
-              }
-            }
-          }
-          }
-      `,
-  });
-
-  return data.allProject as IProject[]
-}
-
 const Projects = async () => {
-  const projects = await getData()
+  const projects = await getProjects()
 
   return (
     <Page className={styles.projects}>
