@@ -1,28 +1,49 @@
-import { GetStaticProps } from 'next';
 import { gql } from "@apollo/client";
-import { client } from "../utils/apollo-client";
-import { IService } from "../utils/types";
+import { client } from "../../../utils/apollo-client";
+import { IService } from "../../../utils/types";
+import { buildMetadata } from "../../../utils/metadata";
 
 // Components
-import Page from "../components/UI/Library/Page/Page";
-import Section from "../components/UI/Library/Section/Section";
-import Container from "../components/UI/Library/Container/Container";
-import ServicesGrid from "../components/Content/Services/Services";
+import Page from "../../../components/UI/Library/Page/Page";
+import Section from "../../../components/UI/Library/Section/Section";
+import Container from "../../../components/UI/Library/Container/Container";
+import ServicesGrid from "../../../components/Content/Services/Services";
 
 // Styles
-import styles from "../styles/pages/services.module.scss";
+import styles from "../../../styles/pages/services.module.scss";
 import Image from 'next/image';
 
-const Services = ({ services }: { services: IService[] }) => {
+export const metadata = buildMetadata({
+  title: "Services | ProMech",
+  description: "FIX THIS",
+  canonical: "/services",
+})
+
+async function getData() {
+  const { data } = await client.query<any>({
+    query: gql`
+        query {
+          allService {
+            category
+            services
+            image {
+              asset {
+                url
+              }
+            }
+          }
+          }
+      `,
+  });
+
+  return data.allService as IService[]
+}
+
+const Services = async () => {
+  const services = await getData()
+
   return (
-    <Page
-      head={{
-        title: "Services | ProMech",
-        description: "FIX THIS",
-        canonical: "/",
-      }}
-      className={styles.services}
-    >
+    <Page className={styles.services}>
       <Section
         className={styles.services}
         heading={{
@@ -68,28 +89,3 @@ const Services = ({ services }: { services: IService[] }) => {
 }
 
 export default Services
-
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await await client.query({
-    query: gql`
-        query {
-          allService {
-            category
-            services
-            image {
-              asset {
-                url
-              }
-            }
-          }
-          }
-      `,
-  });
-
-  return {
-    props: {
-      services: data.allService
-    }
-  }
-}

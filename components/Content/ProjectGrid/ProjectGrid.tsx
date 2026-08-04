@@ -1,3 +1,5 @@
+"use client"
+
 import React, { Component } from "react";
 import { IProject } from "../../../utils/types";
 import Slider from "react-slick";

@@ -1,59 +1,71 @@
 import Link from "next/link"
-import { GetStaticProps } from 'next';
-import { gql } from "@apollo/client";
-import { client } from "../utils/apollo-client";
-import { IProject, IService } from "../utils/types";
+import { gql } from "@apollo/client"
+import { client } from "../../utils/apollo-client"
+import { IProject, IService } from "../../utils/types"
+import { buildMetadata } from "../../utils/metadata"
 
 // Components
-import Page from "../components/UI/Library/Page/Page";
-import Container from "../components/UI/Library/Container/Container";
-import Button from "../components/UI/Library/Button/Button";
-import Section from "../components/UI/Library/Section/Section"
-import ProjectGrid from "../components/Content/ProjectGrid/ProjectGrid"
-import Contact from "../components/Content/Contact/Contact"
-import ClientBanner from "../components/Content/ClientBanner/ClientBanner"
-import StatsBanner from "../components/Content/StatsBanner/StatsBanner"
-import ServicesGrid from "../components/Content/Services/Services"
+import Page from "../../components/UI/Library/Page/Page"
+import Container from "../../components/UI/Library/Container/Container"
+import Button from "../../components/UI/Library/Button/Button"
+import Section from "../../components/UI/Library/Section/Section"
+import ProjectGrid from "../../components/Content/ProjectGrid/ProjectGrid"
+import Contact from "../../components/Content/Contact/Contact"
+import ClientBanner from "../../components/Content/ClientBanner/ClientBanner"
+import StatsBanner from "../../components/Content/StatsBanner/StatsBanner"
+import ServicesGrid from "../../components/Content/Services/Services"
 
 // Styles
-import styles from "../styles/pages/index.module.scss";
-import Image from 'next/image';
+import styles from "../../styles/pages/index.module.scss"
+import Image from 'next/image'
 
+export const metadata = buildMetadata({
+  title: "ProMech Mechanical Engineering",
+  description: "FIX THIS",
+  canonical: "/",
+})
 
-interface IProps {
-  projects: IProject[]
-  services: IService[]
+async function getData() {
+  const { data } = await client.query<any>({
+    query: gql`
+        query {
+          allProject {
+            title
+            client
+            location
+            description
+            home
+            services {
+              category
+            }
+            slug {
+              current
+            }
+            thumbnail {
+              asset {
+                url
+              }
+            }
+          }
+          allService {
+            category
+            services
+          }
+          }
+      `,
+  });
+
+  return {
+    projects: data.allProject as IProject[],
+    services: data.allService as IService[],
+  }
 }
 
-const Home = ({ projects, services }: IProps) => {
+const Home = async () => {
+  const { projects, services } = await getData()
 
-  // Subcomponents
-  const LandingImage = () => {
-    return (
-      <div className={styles.imageContainer}>
-        <Image
-          src="/images/pages/home/landing.png"
-          alt="Gears"
-          priority
-          fill
-          className={styles.image}
-        />
-        <div className={styles.logo}>
-          <div></div>
-          <img src="/images/branding/LogoMark.svg" alt="" />
-        </div>
-      </div>
-    )
-  }
   return (
-    <Page
-      head={{
-        title: "ProMech Mechanical Engineering",
-        description: "FIX THIS",
-        canonical: "/",
-      }}
-      className={styles.home}
-    >
+    <Page className={styles.home}>
       <div className={styles.landing}>
         <Container>
           <div className={styles.content}>
@@ -73,7 +85,19 @@ const Home = ({ projects, services }: IProps) => {
                 </Button>
               </div>
             </div>
-            <LandingImage />
+            <div className={styles.imageContainer}>
+              <Image
+                src="/images/pages/home/landing.png"
+                alt="Gears"
+                priority
+                fill
+                className={styles.image}
+              />
+              <div className={styles.logo}>
+                <div></div>
+                <img src="/images/branding/LogoMark.svg" alt="" />
+              </div>
+            </div>
           </div>
         </Container>
       </div>
@@ -178,41 +202,3 @@ const Home = ({ projects, services }: IProps) => {
 }
 
 export default Home
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await await client.query({
-    query: gql`
-        query {
-          allProject {
-            title
-            client
-            location
-            description
-            home
-            services {
-              category
-            }
-            slug {
-              current
-            }
-            thumbnail {
-              asset {
-                url
-              }
-            }
-          }
-          allService {
-            category
-            services
-          }
-          }
-      `,
-  });
-
-  return {
-    props: {
-      projects: data.allProject,
-      services: data.allService
-    }
-  }
-}

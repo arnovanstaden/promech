@@ -1,6 +1,6 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
 export const client = new ApolloClient({
-  uri: 'https://quufujjm.api.sanity.io/v1/graphql/production/default',
+  link: new HttpLink({ uri: 'https://quufujjm.api.sanity.io/v1/graphql/production/default' }),
   cache: new InMemoryCache()
 });

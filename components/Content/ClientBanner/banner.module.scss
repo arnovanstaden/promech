@@ -1,16 +1,24 @@
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss" as *;
 
 .banner {
     padding: 1rem;
     border-top: 1px solid $lightgrey;
     border-bottom: 1px solid $lightgrey;
+    overflow: hidden;
 
     >div {
         min-height: 4rem;
     }
 
+    .track {
+        display: flex;
+        width: max-content;
+        animation: scroll 30s linear infinite;
+    }
+
     .inner {
         display: flex;
+        flex-shrink: 0;
 
         div {
             padding: 0 1.5rem;
@@ -22,5 +30,15 @@
                 width: 6rem;
             }
         }
+    }
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
     }
 }

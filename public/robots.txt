@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://promechengineering.co.za
+
+# Sitemaps
+Sitemap: https://promechengineering.co.za/sitemap.xml

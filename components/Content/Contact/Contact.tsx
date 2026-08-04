@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef } from "react";
 
 // Components
@@ -7,7 +9,7 @@ import Button from "../../UI/Library/Button/Button";
 import styles from "./contact.module.scss"
 
 const Contact = () => {
-    const formRef = useRef()
+    const formRef = useRef<HTMLFormElement>(null)
 
     const submitForm = (e) => {
         e.preventDefault()
