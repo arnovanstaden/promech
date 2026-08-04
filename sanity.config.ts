@@ -1,10 +1,10 @@
 'use client'
 
-import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 
 import { schemaTypes } from './sanity/schemaTypes'
+import { deployTool } from './sanity/lib/deployTool'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!
@@ -17,9 +17,10 @@ export default defineConfig({
   dataset,
   plugins: [
     structureTool(),
-    ...(process.env.NODE_ENV === 'development' ? [visionTool()] : []),
+    deployTool(),
   ],
   schema: {
     types: schemaTypes,
   },
+  tools: (prev) => prev.filter((tool) => tool.name !== 'releases'),
 })

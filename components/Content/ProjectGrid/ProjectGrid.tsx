@@ -46,6 +46,7 @@ const ProjectGrid = ({ projects, home }: IProps) => {
             breakpoint: 991,
             settings: {
               slidesToShow: 2,
+              slidesToScroll: 2,
               infinite: true,
             }
           },
@@ -53,6 +54,7 @@ const ProjectGrid = ({ projects, home }: IProps) => {
             breakpoint: 768,
             settings: {
               slidesToShow: 1,
+              slidesToScroll: 1,
               infinite: true,
               arrows: false
             }
