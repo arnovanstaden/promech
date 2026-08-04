@@ -7,4 +7,5 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   apiVersion,
   useCdn: true,
+  perspective: 'published',
 })
