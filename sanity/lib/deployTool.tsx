@@ -29,7 +29,8 @@ function DeployTool() {
           Deploy Website
         </Text>
         <Text size={1} muted>
-          Trigger a new production build on Vercel to publish the latest content changes.
+          Click this button to rebuild the website and make you changes live.
+          It takes about 1 minute to complete.
         </Text>
         <Flex>
           <Button
