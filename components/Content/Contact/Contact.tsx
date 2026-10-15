@@ -34,16 +34,16 @@ const Contact = () => {
         <div className={styles.contact}>
             <div className={styles.info}>
                 <h4>Contact Us</h4>
-                <a href="tel:+27829254614">
-                    +27 82 925 4614
+                <a href="tel:+27714741650">
+                    +27 71 474 1650
                 </a>
                 <a href="mailto:info@promech.co.za">
                     info@promech.co.za
                 </a>
                 <h4>Where We Are</h4>
                 <a target="blank"
-                    href="https://goo.gl/maps/21aNEANJDpu4bF7x8">
-                    1 Main Street, Hermon, 7308
+                    href="https://maps.app.goo.gl/cgMpy4fiYCX3XKb29">
+                    13 Lanzerac St, Vredenberg, Cape Town, 7530
                 </a>
             </div>
             <div className={styles.form}>

@@ -1,5 +1,8 @@
+import { notFound } from "next/navigation";
 import { getProjects } from "../../../sanity/lib/api";
 import { buildMetadata } from "../../../utils/metadata";
+
+const PROJECTS_ENABLED = process.env.NEXT_PUBLIC_PROJECTS_ENABLED === "true"
 
 // Components
 import Page from "../../../components/UI/Library/Page/Page";
@@ -16,6 +19,8 @@ export const metadata = buildMetadata({
 })
 
 const Projects = async () => {
+  if (!PROJECTS_ENABLED) notFound()
+
   const projects = await getProjects()
 
   return (

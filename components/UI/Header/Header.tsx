@@ -7,6 +7,8 @@ import { useRef, useEffect } from "react";
 // Components
 import Components from "../Library/Container/Container"
 
+const PROJECTS_ENABLED = process.env.NEXT_PUBLIC_PROJECTS_ENABLED === "true"
+
 // Styles
 import styles from "./header.module.scss";
 
@@ -45,11 +47,13 @@ export default function Header() {
             Services
           </Link>
         </li>
-        <li className={pathname == "/projects" ? styles.active : ""}>
-          <Link href="/projects">
-            Projects
-          </Link>
-        </li>
+        {PROJECTS_ENABLED &&
+          <li className={pathname == "/projects" ? styles.active : ""}>
+            <Link href="/projects">
+              Projects
+            </Link>
+          </li>
+        }
         <li className={pathname == "/contact" ? styles.active : ""}>
           <Link href="/contact">
             Contact
@@ -72,7 +76,7 @@ export default function Header() {
           <div className={styles.contact}>
             <div>
               <i className="icon-phone"></i>
-              <a href="tel:+27829254614">+27 82 925 4614</a>
+              <a href="tel:+27714741650">+27 71 474 1650</a>
             </div>
           </div>
           <i className="icon-menu" onClick={handleNavToggle}></i>

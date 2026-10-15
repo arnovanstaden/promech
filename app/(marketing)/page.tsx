@@ -17,6 +17,8 @@ import ServicesGrid from "../../components/Content/Services/Services"
 import styles from "../../styles/pages/index.module.scss"
 import Image from 'next/image'
 
+const PROJECTS_ENABLED = process.env.NEXT_PUBLIC_PROJECTS_ENABLED === "true"
+
 export const metadata = buildMetadata({
   title: "ProMech Mechanical Engineering",
   description: "FIX THIS",
@@ -25,7 +27,7 @@ export const metadata = buildMetadata({
 
 const Home = async () => {
   const [projects, services] = await Promise.all([
-    getFeaturedProjects(),
+    PROJECTS_ENABLED ? getFeaturedProjects() : Promise.resolve([]),
     getServices(),
   ])
 
@@ -44,10 +46,12 @@ const Home = async () => {
                 <Button link="/services">
                   Our Services
                 </Button>
-                <Button link="/projects"
-                  hollow>
-                  Past Projects
-                </Button>
+                {PROJECTS_ENABLED &&
+                  <Button link="/projects"
+                    hollow>
+                    Past Projects
+                  </Button>
+                }
               </div>
             </div>
             <div className={styles.imageContainer}>
@@ -100,18 +104,20 @@ const Home = async () => {
               </button>
             </div>
           </Link>
-          <Link href="/projects">
-            <div className={styles.item}>
-              <img src="/images/pages/home/about-icon-3.svg" alt="Factory Icon" />
-              <h4>What We’ve Done</h4>
-              <hr />
-              <p>Take a look at the successful projects we've contributed our unique value to in the past.</p>
-              <button>
-                Read More
-                <i className="icon-arrow_right"></i>
-              </button>
-            </div>
-          </Link>
+          {PROJECTS_ENABLED &&
+            <Link href="/projects">
+              <div className={styles.item}>
+                <img src="/images/pages/home/about-icon-3.svg" alt="Factory Icon" />
+                <h4>What We’ve Done</h4>
+                <hr />
+                <p>Take a look at the successful projects we've contributed our unique value to in the past.</p>
+                <button>
+                  Read More
+                  <i className="icon-arrow_right"></i>
+                </button>
+              </div>
+            </Link>
+          }
         </div>
       </Section>
 
@@ -132,23 +138,25 @@ const Home = async () => {
 
       <ClientBanner />
 
-      <Section
-        className={styles.projects}
-        heading={{
-          title: "Our Recent Projects",
-          subtitle: "What We’ve Done"
-        }}
-        colour="dark"
-      >
-        <ProjectGrid projects={projects} home />
+      {PROJECTS_ENABLED &&
+        <Section
+          className={styles.projects}
+          heading={{
+            title: "Our Recent Projects",
+            subtitle: "What We’ve Done"
+          }}
+          colour="dark"
+        >
+          <ProjectGrid projects={projects} home />
 
-        <div className={styles.button}>
-          <Button link="/projects"
-            hollow>
-            View Past Projects
-          </Button>
-        </div>
-      </Section>
+          <div className={styles.button}>
+            <Button link="/projects"
+              hollow>
+              View Past Projects
+            </Button>
+          </div>
+        </Section>
+      }
 
       <StatsBanner />
 
