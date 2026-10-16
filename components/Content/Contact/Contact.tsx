@@ -39,8 +39,8 @@ const Contact = () => {
         <a href="tel:+27714741650">
           +27 71 474 1650
         </a>
-        <a href="mailto:info@promech.co.za">
-          info@promech.co.za
+        <a href="mailto:info@promechengineering.co.za">
+          info@promechengineering.co.za
         </a>
         <h4>Where We Are</h4>
         <a target="blank"
