@@ -9,9 +9,11 @@ interface IProps {
   children: string;
   hollow?: boolean;
   click?: any;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
-const Button = ({ link, children, hollow, click, }: IProps) => {
+const Button = ({ link, children, hollow, click, type = "button", disabled = false }: IProps) => {
 
   const classes = ClassNames(
     styles.button,
@@ -20,7 +22,7 @@ const Button = ({ link, children, hollow, click, }: IProps) => {
 
   const Inner = () => {
     return (
-      <button className={classes} onClick={click ? click : null}>
+      <button className={classes} onClick={click ? click : null} type={type} disabled={disabled}>
         {children}
       </button>
     )
