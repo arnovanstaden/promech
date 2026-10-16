@@ -3,6 +3,8 @@ import Link from "next/link";
 // Components
 import Container from "../Library/Container/Container"
 
+const PROJECTS_ENABLED = process.env.NEXT_PUBLIC_PROJECTS_ENABLED === "true"
+
 // Styles
 import styles from "./footer.module.scss";
 
@@ -84,11 +86,13 @@ export default function Footer() {
                                     Our Memberships
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/projects">
-                                    Past Projects
-                                </Link>
-                            </li>
+                            {PROJECTS_ENABLED &&
+                                <li>
+                                    <Link href="/projects">
+                                        Past Projects
+                                    </Link>
+                                </li>
+                            }
                             <li>
                                 <Link href="/contact">
                                     Contact Us

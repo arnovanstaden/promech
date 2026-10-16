@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getProjectBySlug, getProjectSlugs } from "../../../../sanity/lib/api";
 import { buildMetadata } from "../../../../utils/metadata";
 
+const PROJECTS_ENABLED = process.env.NEXT_PUBLIC_PROJECTS_ENABLED === "true"
+
 // Components
 import Page from "../../../../components/UI/Library/Page/Page";
 import Section from "../../../../components/UI/Library/Section/Section"
@@ -28,6 +30,8 @@ export async function generateMetadata({ params }: IProps) {
 }
 
 export async function generateStaticParams() {
+  if (!PROJECTS_ENABLED) return []
+
   const projects = await getProjectSlugs()
 
   return projects.map((project) => ({
@@ -36,6 +40,8 @@ export async function generateStaticParams() {
 }
 
 const Project = async ({ params }: IProps) => {
+  if (!PROJECTS_ENABLED) notFound()
+
   const { slug } = await params
   const project = await getProjectBySlug(slug)
 
